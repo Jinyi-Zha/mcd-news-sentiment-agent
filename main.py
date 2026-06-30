@@ -18,10 +18,20 @@ from src.processing.equity_filter import (
     filter_equity_headlines,
     format_validation_summary as format_equity_filter_validation_summary,
 )
+from src.processing.time_filter import (
+    filter_recent_headlines,
+    format_validation_summary as format_recent_validation_summary,
+)
 
 
 VALID_RUN_TYPES = ("eu_open", "us_open", "us_close")
-VALID_STAGES = ("pull_yahoo", "pull_cnbc", "combine_raw", "filter_equities")
+VALID_STAGES = (
+    "pull_yahoo",
+    "pull_cnbc",
+    "combine_raw",
+    "filter_equities",
+    "filter_recent",
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -38,6 +48,11 @@ def parse_args() -> argparse.Namespace:
         "--stage",
         choices=VALID_STAGES,
         help="Optional Stage 1 task to run.",
+    )
+    parser.add_argument(
+        "--lookback_hours",
+        type=float,
+        help="Optional lookback window in hours for filter_recent.",
     )
     return parser.parse_args()
 
@@ -77,6 +92,16 @@ def main() -> None:
         print(f"Filtered equity headlines: {len(records)}")
         print(f"Saved CSV: {saved_path}")
         print(format_equity_filter_validation_summary(summary))
+
+    if args.stage == "filter_recent":
+        records, saved_path, summary = filter_recent_headlines(
+            run_type=args.run_type,
+            lookback_hours=args.lookback_hours,
+        )
+        print(f"Stage: {args.stage}")
+        print(f"Recent equity headlines: {len(records)}")
+        print(f"Saved CSV: {saved_path}")
+        print(format_recent_validation_summary(summary))
 
 
 if __name__ == "__main__":
