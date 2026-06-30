@@ -2,14 +2,18 @@ import argparse
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
+from src.fetchers.cnbc_rss import (
+    format_validation_summary as format_cnbc_validation_summary,
+)
+from src.fetchers.cnbc_rss import pull_and_save_cnbc_headlines
 from src.fetchers.yahoo_finance import (
-    format_validation_summary,
+    format_validation_summary as format_yahoo_validation_summary,
     pull_and_save_yahoo_headlines,
 )
 
 
 VALID_RUN_TYPES = ("eu_open", "us_open", "us_close")
-VALID_STAGES = ("pull_yahoo",)
+VALID_STAGES = ("pull_yahoo", "pull_cnbc")
 
 
 def parse_args() -> argparse.Namespace:
@@ -43,7 +47,14 @@ def main() -> None:
         print(f"Stage: {args.stage}")
         print(f"Yahoo headlines pulled: {len(records)}")
         print(f"Saved CSV: {saved_path}")
-        print(format_validation_summary(summary))
+        print(format_yahoo_validation_summary(summary))
+
+    if args.stage == "pull_cnbc":
+        records, saved_path, summary = pull_and_save_cnbc_headlines()
+        print(f"Stage: {args.stage}")
+        print(f"CNBC RSS headlines pulled: {len(records)}")
+        print(f"Saved CSV: {saved_path}")
+        print(format_cnbc_validation_summary(summary))
 
 
 if __name__ == "__main__":
