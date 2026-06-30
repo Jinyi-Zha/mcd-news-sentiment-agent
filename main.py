@@ -2,6 +2,10 @@ import argparse
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
+from src.analysis.ticker_frequency import (
+    count_ticker_frequency,
+    format_validation_summary as format_ticker_frequency_validation_summary,
+)
 from src.fetchers.cnbc_rss import (
     format_validation_summary as format_cnbc_validation_summary,
 )
@@ -31,6 +35,7 @@ VALID_STAGES = (
     "combine_raw",
     "filter_equities",
     "filter_recent",
+    "ticker_frequency",
 )
 
 
@@ -102,6 +107,13 @@ def main() -> None:
         print(f"Recent equity headlines: {len(records)}")
         print(f"Saved CSV: {saved_path}")
         print(format_recent_validation_summary(summary))
+
+    if args.stage == "ticker_frequency":
+        records, saved_path, summary = count_ticker_frequency()
+        print(f"Stage: {args.stage}")
+        print(f"Ticker frequency rows: {len(records)}")
+        print(f"Saved CSV: {saved_path}")
+        print(format_ticker_frequency_validation_summary(summary))
 
 
 if __name__ == "__main__":
