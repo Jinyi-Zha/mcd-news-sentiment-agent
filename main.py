@@ -14,10 +14,14 @@ from src.processing.combine_raw import (
     combine_raw_headlines,
     format_validation_summary as format_combined_raw_validation_summary,
 )
+from src.processing.equity_filter import (
+    filter_equity_headlines,
+    format_validation_summary as format_equity_filter_validation_summary,
+)
 
 
 VALID_RUN_TYPES = ("eu_open", "us_open", "us_close")
-VALID_STAGES = ("pull_yahoo", "pull_cnbc", "combine_raw")
+VALID_STAGES = ("pull_yahoo", "pull_cnbc", "combine_raw", "filter_equities")
 
 
 def parse_args() -> argparse.Namespace:
@@ -66,6 +70,13 @@ def main() -> None:
         print(f"Combined raw headlines: {len(records)}")
         print(f"Saved CSV: {saved_path}")
         print(format_combined_raw_validation_summary(summary))
+
+    if args.stage == "filter_equities":
+        records, saved_path, summary, _removed_records = filter_equity_headlines()
+        print(f"Stage: {args.stage}")
+        print(f"Filtered equity headlines: {len(records)}")
+        print(f"Saved CSV: {saved_path}")
+        print(format_equity_filter_validation_summary(summary))
 
 
 if __name__ == "__main__":
