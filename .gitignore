@@ -35,4 +35,5 @@ outputs/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 !outputs/.gitkeep
-
+!outputs/archive/
+!outputs/archive/**
