@@ -1,4 +1,4 @@
-MCD Capital — Equities Briefing | EU Open | 2026-07-01 09:21 BST
+MCD Capital — Equities Briefing | EU Open | 2026-07-01 12:46 BST
 
 TOP HEADLINES
 1. Tesla / FSD / deliveries / robotaxi — 8 sources / 10 headlines — TSLA
