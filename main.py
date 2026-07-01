@@ -42,6 +42,10 @@ from src.output.email_sender import (
     email_dry_run,
     format_dry_run_summary as format_email_dry_run_summary,
 )
+from src.output.run_summary import (
+    create_run_summary,
+    format_validation_summary as format_run_summary_validation_summary,
+)
 
 
 VALID_RUN_TYPES = ("eu_open", "us_open", "us_close")
@@ -56,6 +60,7 @@ VALID_STAGES = (
     "macro_calendar",
     "write_briefing",
     "email_dry_run",
+    "run_summary",
 )
 
 
@@ -156,11 +161,26 @@ def main() -> None:
         print(f"Stage: {args.stage}")
         print(f"Saved briefing: {output_path}")
         print(format_briefing_validation_summary(summary))
+        _, run_summary = create_run_summary(
+            run_type=args.run_type,
+            briefing_summary=summary,
+        )
+        print(format_run_summary_validation_summary(run_summary))
 
     if args.stage == "email_dry_run":
         email_payload = email_dry_run(run_type=args.run_type)
         print(f"Stage: {args.stage}")
         print(format_email_dry_run_summary(email_payload))
+        _, run_summary = create_run_summary(
+            run_type=args.run_type,
+            email_payload=email_payload,
+        )
+        print(format_run_summary_validation_summary(run_summary))
+
+    if args.stage == "run_summary":
+        _, summary = create_run_summary(run_type=args.run_type)
+        print(f"Stage: {args.stage}")
+        print(format_run_summary_validation_summary(summary))
 
 
 if __name__ == "__main__":

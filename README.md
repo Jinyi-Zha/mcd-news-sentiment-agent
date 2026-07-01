@@ -17,6 +17,7 @@ A lightweight equities briefing tool for a trading audience. It generates short,
 - Manual/config-driven v2 macro calendar
 - Markdown briefing output
 - Email delivery dry-run stub
+- Operational run summary / audit log
 - Not a research report
 - Not a trade recommendation
 
@@ -32,6 +33,7 @@ A lightweight equities briefing tool for a trading audience. It generates short,
 8. `macro_calendar` - reads the config-driven macro calendar and writes today's events.
 9. `write_briefing` - generates the final Markdown briefing.
 10. `email_dry_run` - formats a future delivery email preview without sending it.
+11. `run_summary` - writes an operational run log and archive copy.
 
 ## How to Run
 
@@ -55,6 +57,7 @@ Run the pipeline stages:
 .venv/bin/python main.py --run_type eu_open --stage macro_calendar
 .venv/bin/python main.py --run_type eu_open --stage write_briefing
 .venv/bin/python main.py --run_type eu_open --stage email_dry_run
+.venv/bin/python main.py --run_type eu_open --stage run_summary
 ```
 
 Email delivery is currently dry-run only. The `email_dry_run` stage reads the generated Markdown briefing, formats a subject and body preview, and prints a placeholder recipient list. It does not use SMTP, API keys, secrets, or real sending.
@@ -66,6 +69,8 @@ Macro events are maintained manually in `config/macro_calendar_2026.csv`. This i
 Headline grouping uses rule-based theme aliases plus lightweight token-overlap near-duplicate scoring. It does not use embeddings, LLMs, paid APIs, or external services.
 
 `KEY TICKERS TO WATCH` is formatted as a trader-style watchlist with mention evidence, market relevance, and watch-next context.
+
+`outputs/run_summary.md` is an operational run log / audit trail. It records the run type, London timestamp, generated files, data counts, quality checks, and any warnings if the run appears incomplete. A timestamped archive copy is also saved under `outputs/archive/YYYY-MM-DD/`.
 
 ## Run Types
 
@@ -93,6 +98,7 @@ For sample outputs, a 24-hour lookback can be used if local data is stale:
 - `outputs/email_preview/eu_open_email.md`
 - `outputs/email_preview/us_open_email.md`
 - `outputs/email_preview/us_close_email.md`
+- `outputs/run_summary.md`
 
 ## Output Format
 
