@@ -1,28 +1,117 @@
 # MCD News & Sentiment Agent
 
-This project is a v1 foundation for a News & Sentiment Agent for equities briefings.
+## Project Goal
 
-The final tool will produce short briefings for three daily run types:
+A lightweight equities briefing tool for a trading audience. It generates short, scannable market briefings for EU open, US open, and US close.
 
-- `eu_open`
-- `us_open`
-- `us_close`
+## V1 Scope
 
-The current stage includes the base structure and a Stage 1 Yahoo Finance headline pull. It does not analyse headlines or run automatically yet.
+- Equities only
+- Free data sources only
+- Yahoo Finance ticker-level headlines
+- CNBC RSS general headlines
+- Rule-based filtering
+- Rule-based repeated headline grouping
+- Rule-based ticker frequency
+- Manual v1 macro calendar
+- Markdown briefing output
+- Not a research report
+- Not a trade recommendation
+
+## Pipeline
+
+1. `pull_yahoo` - pulls ticker-level Yahoo Finance headlines for the default watchlist.
+2. `pull_cnbc` - pulls general market headlines from free CNBC RSS feeds.
+3. `combine_raw` - combines Yahoo and CNBC raw headline CSVs into one raw processed file.
+4. `filter_equities` - applies a simple rule-based equities relevance filter.
+5. `filter_recent` - keeps only headlines inside the run type lookback window.
+6. `ticker_frequency` - counts key ticker and theme mentions.
+7. `headline_repetition` - groups repeated or theme-similar headlines.
+8. `macro_calendar` - writes today's manually maintained v1 macro calendar.
+9. `write_briefing` - generates the final Markdown briefing.
 
 ## How to Run
 
+Set up the local environment:
+
 ```bash
-python main.py --run_type eu_open
-python main.py --run_type us_open
-python main.py --run_type us_close
-python main.py --run_type eu_open --stage pull_yahoo
+python -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
 ```
 
-## Current Scope
+Run the pipeline stages:
 
-- Project structure only
-- `CLAUDE.md` project context
-- Stage 1 Yahoo Finance ticker-level headline pull
-- Raw Yahoo headline CSV saved to `data/raw/yahoo_headlines.csv`
-- Minimal `main.py` that prints the selected run type and current London time
+```bash
+.venv/bin/python main.py --run_type eu_open --stage pull_yahoo
+.venv/bin/python main.py --run_type eu_open --stage pull_cnbc
+.venv/bin/python main.py --run_type eu_open --stage combine_raw
+.venv/bin/python main.py --run_type eu_open --stage filter_equities
+.venv/bin/python main.py --run_type eu_open --stage filter_recent
+.venv/bin/python main.py --run_type eu_open --stage ticker_frequency
+.venv/bin/python main.py --run_type eu_open --stage headline_repetition
+.venv/bin/python main.py --run_type eu_open --stage macro_calendar
+.venv/bin/python main.py --run_type eu_open --stage write_briefing
+```
+
+## Run Types
+
+- `eu_open` - EU market open briefing.
+- `us_open` - US market open briefing.
+- `us_close` - US market close briefing.
+
+Default lookback windows:
+
+- `eu_open`: 12 hours
+- `us_open`: 8 hours
+- `us_close`: 8 hours
+
+For sample outputs, a 24-hour lookback can be used if local data is stale:
+
+```bash
+.venv/bin/python main.py --run_type us_open --stage filter_recent --lookback_hours 24
+```
+
+## Sample Outputs
+
+- `outputs/eu_open_briefing.md`
+- `outputs/us_open_briefing.md`
+- `outputs/us_close_briefing.md`
+
+## Output Format
+
+```text
+TOP HEADLINES
+1. [story] - [source count] sources / [headline count] headlines - [tickers]
+
+KEY TICKERS
+1. [ticker] - inferred [count] / Yahoo feed [count] - [theme]
+
+MACRO CALENDAR
+[time] - [event] - [region] - [importance]
+
+Generated automatically. Not a trade recommendation.
+```
+
+## Current Limitations
+
+- Macro calendar is manual v1
+- No live scheduler yet
+- No email sending yet
+- No LLM classification
+- No dashboard
+- No paid data sources
+- Rule-based grouping may overlap themes
+- Sample outputs depend on locally available headline data
+
+## Suggested Future Improvements
+
+- Automated scheduler
+- More robust economic calendar source
+- Better duplicate and near-duplicate detection
+- Optional LLM-assisted classification after rule-based v1 is stable
+- Email or Slack distribution stub
+- Dashboard only after core pipeline is reliable
+
+## Final Delivery Notes
+
+The project prioritises stability, readability, explainability, and avoiding over-building.
