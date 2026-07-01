@@ -6,6 +6,14 @@ from src.analysis.ticker_frequency import (
     count_ticker_frequency,
     format_validation_summary as format_ticker_frequency_validation_summary,
 )
+from src.analysis.headline_repetition import (
+    find_repeated_headlines,
+    format_validation_summary as format_headline_repetition_validation_summary,
+)
+from src.analysis.macro_calendar import (
+    build_macro_calendar,
+    format_validation_summary as format_macro_calendar_validation_summary,
+)
 from src.fetchers.cnbc_rss import (
     format_validation_summary as format_cnbc_validation_summary,
 )
@@ -36,6 +44,8 @@ VALID_STAGES = (
     "filter_equities",
     "filter_recent",
     "ticker_frequency",
+    "headline_repetition",
+    "macro_calendar",
 )
 
 
@@ -114,6 +124,22 @@ def main() -> None:
         print(f"Ticker frequency rows: {len(records)}")
         print(f"Saved CSV: {saved_path}")
         print(format_ticker_frequency_validation_summary(summary))
+
+    if args.stage == "headline_repetition":
+        records, saved_path, summary = find_repeated_headlines()
+        print(f"Stage: {args.stage}")
+        print(f"Repeated headline groups: {len(records)}")
+        print(f"Saved CSV: {saved_path}")
+        print(format_headline_repetition_validation_summary(summary))
+
+    if args.stage == "macro_calendar":
+        records, saved_path, summary = build_macro_calendar()
+        print(f"Stage: {args.stage}")
+        print(f"Macro calendar events: {len(records)}")
+        print(f"Saved CSV: {saved_path}")
+        if not records:
+            print("No macro events found for today in the v1 manual calendar.")
+        print(format_macro_calendar_validation_summary(summary))
 
 
 if __name__ == "__main__":
