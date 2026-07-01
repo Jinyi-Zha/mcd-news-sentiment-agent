@@ -1,0 +1,4 @@
+date,time_london,country,event,importance,asset_impact
+2026-07-01,09:30,UK,UK Manufacturing PMI final,medium,GBP; FTSE; UK rates
+2026-07-01,14:45,US,US S&P Global Manufacturing PMI final,medium,USD; US rates; index futures
+2026-07-01,15:00,US,US ISM Manufacturing PMI,high,USD; US rates; S&P 500 futures

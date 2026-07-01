@@ -13,7 +13,7 @@ A lightweight equities briefing tool for a trading audience. It generates short,
 - Rule-based filtering
 - Rule-based repeated headline grouping
 - Rule-based ticker frequency
-- Manual v1 macro calendar
+- Manual/config-driven v2 macro calendar
 - Markdown briefing output
 - Email delivery dry-run stub
 - Not a research report
@@ -28,7 +28,7 @@ A lightweight equities briefing tool for a trading audience. It generates short,
 5. `filter_recent` - keeps only headlines inside the run type lookback window.
 6. `ticker_frequency` - counts key ticker and theme mentions.
 7. `headline_repetition` - groups repeated or theme-similar headlines.
-8. `macro_calendar` - writes today's manually maintained v1 macro calendar.
+8. `macro_calendar` - reads the config-driven macro calendar and writes today's events.
 9. `write_briefing` - generates the final Markdown briefing.
 10. `email_dry_run` - formats a future delivery email preview without sending it.
 
@@ -59,6 +59,8 @@ Run the pipeline stages:
 Email delivery is currently dry-run only. The `email_dry_run` stage reads the generated Markdown briefing, formats a subject and body preview, and prints a placeholder recipient list. It does not use SMTP, API keys, secrets, or real sending.
 
 The dry-run stage also saves a reviewable Markdown email preview under `outputs/email_preview/`.
+
+Macro events are maintained manually in `config/macro_calendar_2026.csv`. This is a manual/config-driven v2: no scraping, no paid API, and no credentials are required.
 
 ## Run Types
 
@@ -104,7 +106,7 @@ Generated automatically. Not a trade recommendation.
 
 ## Current Limitations
 
-- Macro calendar is manual v1
+- Macro calendar is manual/config-driven v2 and depends on `config/macro_calendar_2026.csv`
 - No live scheduler yet
 - Email delivery is dry-run only; no real sending yet
 - No LLM classification
@@ -116,7 +118,7 @@ Generated automatically. Not a trade recommendation.
 ## Suggested Future Improvements
 
 - Automated scheduler
-- More robust economic calendar source
+- More robust economic calendar source, such as Trading Economics, FRED, or another compliant calendar API
 - Better duplicate and near-duplicate detection
 - Optional LLM-assisted classification after rule-based v1 is stable
 - Production email or Slack distribution
