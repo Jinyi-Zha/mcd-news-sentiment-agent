@@ -42,6 +42,8 @@ FILLER_WORDS = {
     "to",
     "with",
 }
+NEAR_DUPLICATE_THRESHOLD = 0.50
+MIN_NEAR_DUPLICATE_TOKENS = 4
 
 THEME_GROUPS = (
     {
@@ -155,6 +157,24 @@ def normalize_headline(headline: str) -> str:
     return " ".join(words)
 
 
+def normalized_tokens(headline: str) -> set[str]:
+    normalized = normalize_headline(headline)
+    return {
+        word
+        for word in normalized.split()
+        if len(word) > 2 and not word.isdigit()
+    }
+
+
+def near_duplicate_score(headline_a: str, headline_b: str) -> float:
+    tokens_a = normalized_tokens(headline_a)
+    tokens_b = normalized_tokens(headline_b)
+    if not tokens_a or not tokens_b:
+        return 0.0
+
+    return len(tokens_a & tokens_b) / len(tokens_a | tokens_b)
+
+
 def important_terms(normalized_headline: str) -> set[str]:
     return {
         word
@@ -223,9 +243,68 @@ def build_group_record(
     }
 
 
+def near_duplicate_story_label(record_a: dict[str, str], record_b: dict[str, str]) -> str:
+    headline_a = record_a.get("headline", "")
+    headline_b = record_b.get("headline", "")
+    shared_terms = sorted(normalized_tokens(headline_a) & normalized_tokens(headline_b))
+    if shared_terms:
+        return f"Near duplicate: {' '.join(shared_terms)[:60]}"
+
+    return f"Near duplicate: {normalize_headline(headline_a)[:60]}"
+
+
+def build_near_duplicate_groups(
+    input_records: list[dict[str, str]],
+) -> tuple[list[tuple[str, list[dict[str, str]]]], dict[str, Any] | None]:
+    headline_records = [
+        record
+        for record in input_records
+        if len(normalized_tokens(record.get("headline", ""))) >= MIN_NEAR_DUPLICATE_TOKENS
+    ]
+    used_record_ids: set[int] = set()
+    groups: list[tuple[str, list[dict[str, str]]]] = []
+    example_pair: dict[str, Any] | None = None
+
+    for index, record_a in enumerate(headline_records):
+        record_a_id = id(record_a)
+        if record_a_id in used_record_ids:
+            continue
+
+        group_records = [record_a]
+        best_match: tuple[float, dict[str, str]] | None = None
+        headline_a = record_a.get("headline", "")
+
+        for record_b in headline_records[index + 1 :]:
+            record_b_id = id(record_b)
+            if record_b_id in used_record_ids:
+                continue
+
+            headline_b = record_b.get("headline", "")
+            score = near_duplicate_score(headline_a, headline_b)
+            if score >= NEAR_DUPLICATE_THRESHOLD and score < 1.0:
+                group_records.append(record_b)
+                used_record_ids.add(record_b_id)
+                if best_match is None or score > best_match[0]:
+                    best_match = (score, record_b)
+
+        if len(group_records) > 1 and best_match:
+            used_record_ids.add(record_a_id)
+            story_label = near_duplicate_story_label(record_a, best_match[1])
+            groups.append((story_label, group_records))
+
+            if example_pair is None:
+                example_pair = {
+                    "score": round(best_match[0], 2),
+                    "headline_a": headline_a,
+                    "headline_b": best_match[1].get("headline", ""),
+                }
+
+    return groups, example_pair
+
+
 def group_repeated_headlines(
     input_records: list[dict[str, str]],
-) -> list[dict[str, str]]:
+) -> tuple[list[dict[str, str]], dict[str, Any] | None]:
     theme_records: dict[str, list[dict[str, str]]] = defaultdict(list)
     exact_or_near_duplicate_records: dict[str, list[dict[str, str]]] = defaultdict(list)
 
@@ -275,6 +354,22 @@ def group_repeated_headlines(
         )
         existing_labels.add(story_label)
 
+    near_duplicate_groups, near_duplicate_example = build_near_duplicate_groups(
+        input_records=input_records
+    )
+    for story_label, records in near_duplicate_groups:
+        if story_label in existing_labels:
+            continue
+
+        output_records.append(
+            build_group_record(
+                story_label=story_label,
+                records=records,
+                related_tickers=(),
+            )
+        )
+        existing_labels.add(story_label)
+
     output_records.sort(
         key=lambda record: (
             record["briefing_eligible"] != "true",
@@ -283,12 +378,13 @@ def group_repeated_headlines(
             record["story_label"],
         )
     )
-    return output_records[:10]
+    return output_records[:10], near_duplicate_example
 
 
 def build_validation_summary(
     input_records: list[dict[str, str]],
     output_records: list[dict[str, str]],
+    near_duplicate_example: dict[str, Any] | None,
 ) -> dict[str, Any]:
     briefing_eligible_groups = [
         record for record in output_records if record["briefing_eligible"] == "true"
@@ -308,7 +404,12 @@ def build_validation_summary(
 
     return {
         "input_rows": len(input_records),
+        "headlines_processed": len(
+            [record for record in input_records if record.get("headline", "").strip()]
+        ),
         "story_groups": len(output_records),
+        "near_duplicate_logic_applied": True,
+        "near_duplicate_example": near_duplicate_example,
         "briefing_eligible_groups": len(briefing_eligible_groups),
         "top_briefing_eligible_groups": top_briefing_eligible_groups,
         "excluded_source_count_one_groups": excluded_source_count_one_groups,
@@ -328,12 +429,30 @@ def format_validation_summary(summary: dict[str, Any]) -> str:
             summary["excluded_source_count_one_groups"], start=1
         )
     ]
+    near_duplicate_example = summary["near_duplicate_example"]
+    if near_duplicate_example:
+        near_duplicate_lines = [
+            (
+                "Example near-duplicate pair "
+                f"(score={near_duplicate_example['score']}):"
+            ),
+            f"  A: {near_duplicate_example['headline_a']}",
+            f"  B: {near_duplicate_example['headline_b']}",
+        ]
+    else:
+        near_duplicate_lines = ["Example near-duplicate pair: None found"]
 
     return "\n".join(
         [
             "Headline repetition validation summary:",
             f"Input rows: {summary['input_rows']}",
+            f"Headlines processed: {summary['headlines_processed']}",
             f"Number of story groups: {summary['story_groups']}",
+            (
+                "Near-duplicate logic applied: "
+                f"{summary['near_duplicate_logic_applied']}"
+            ),
+            *near_duplicate_lines,
             (
                 "Number of briefing eligible groups: "
                 f"{summary['briefing_eligible_groups']}"
@@ -354,7 +473,7 @@ def find_repeated_headlines(
     output_path: Path = DEFAULT_OUTPUT_PATH,
 ) -> tuple[list[dict[str, str]], Path, dict[str, Any]]:
     input_records = read_headline_csv(input_path=input_path)
-    output_records = group_repeated_headlines(input_records)
+    output_records, near_duplicate_example = group_repeated_headlines(input_records)
     saved_path = save_repeated_headlines_csv(
         records=output_records,
         output_path=output_path,
@@ -362,5 +481,6 @@ def find_repeated_headlines(
     summary = build_validation_summary(
         input_records=input_records,
         output_records=output_records,
+        near_duplicate_example=near_duplicate_example,
     )
     return output_records, saved_path, summary

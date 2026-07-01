@@ -11,7 +11,7 @@ A lightweight equities briefing tool for a trading audience. It generates short,
 - Yahoo Finance ticker-level headlines
 - CNBC RSS general headlines
 - Rule-based filtering
-- Rule-based repeated headline grouping
+- Rule-based repeated headline grouping plus lightweight near-duplicate scoring
 - Rule-based ticker frequency
 - Manual/config-driven v2 macro calendar
 - Markdown briefing output
@@ -27,7 +27,7 @@ A lightweight equities briefing tool for a trading audience. It generates short,
 4. `filter_equities` - applies a simple rule-based equities relevance filter.
 5. `filter_recent` - keeps only headlines inside the run type lookback window.
 6. `ticker_frequency` - counts key ticker and theme mentions.
-7. `headline_repetition` - groups repeated or theme-similar headlines.
+7. `headline_repetition` - groups repeated, theme-similar, and near-duplicate headlines.
 8. `macro_calendar` - reads the config-driven macro calendar and writes today's events.
 9. `write_briefing` - generates the final Markdown briefing.
 10. `email_dry_run` - formats a future delivery email preview without sending it.
@@ -61,6 +61,8 @@ Email delivery is currently dry-run only. The `email_dry_run` stage reads the ge
 The dry-run stage also saves a reviewable Markdown email preview under `outputs/email_preview/`.
 
 Macro events are maintained manually in `config/macro_calendar_2026.csv`. This is a manual/config-driven v2: no scraping, no paid API, and no credentials are required.
+
+Headline grouping uses rule-based theme aliases plus lightweight token-overlap near-duplicate scoring. It does not use embeddings, LLMs, paid APIs, or external services.
 
 ## Run Types
 
@@ -112,7 +114,7 @@ Generated automatically. Not a trade recommendation.
 - No LLM classification
 - No dashboard
 - No paid data sources
-- Rule-based grouping may overlap themes
+- Rule-based grouping and lightweight near-duplicate scoring may overlap themes
 - Sample outputs depend on locally available headline data
 
 ## Suggested Future Improvements
