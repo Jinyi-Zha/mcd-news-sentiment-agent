@@ -15,6 +15,7 @@ A lightweight equities briefing tool for a trading audience. It generates short,
 - Rule-based ticker frequency
 - Manual v1 macro calendar
 - Markdown briefing output
+- Email delivery dry-run stub
 - Not a research report
 - Not a trade recommendation
 
@@ -29,6 +30,7 @@ A lightweight equities briefing tool for a trading audience. It generates short,
 7. `headline_repetition` - groups repeated or theme-similar headlines.
 8. `macro_calendar` - writes today's manually maintained v1 macro calendar.
 9. `write_briefing` - generates the final Markdown briefing.
+10. `email_dry_run` - formats a future delivery email preview without sending it.
 
 ## How to Run
 
@@ -51,7 +53,10 @@ Run the pipeline stages:
 .venv/bin/python main.py --run_type eu_open --stage headline_repetition
 .venv/bin/python main.py --run_type eu_open --stage macro_calendar
 .venv/bin/python main.py --run_type eu_open --stage write_briefing
+.venv/bin/python main.py --run_type eu_open --stage email_dry_run
 ```
+
+Email delivery is currently dry-run only. The `email_dry_run` stage reads the generated Markdown briefing, formats a subject and body preview, and prints a placeholder recipient list. It does not use SMTP, API keys, secrets, or real sending.
 
 ## Run Types
 
@@ -96,7 +101,7 @@ Generated automatically. Not a trade recommendation.
 
 - Macro calendar is manual v1
 - No live scheduler yet
-- No email sending yet
+- Email delivery is dry-run only; no real sending yet
 - No LLM classification
 - No dashboard
 - No paid data sources
@@ -109,7 +114,7 @@ Generated automatically. Not a trade recommendation.
 - More robust economic calendar source
 - Better duplicate and near-duplicate detection
 - Optional LLM-assisted classification after rule-based v1 is stable
-- Email or Slack distribution stub
+- Production email or Slack distribution
 - Dashboard only after core pipeline is reliable
 
 ## Final Delivery Notes

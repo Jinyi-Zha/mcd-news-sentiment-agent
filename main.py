@@ -38,6 +38,10 @@ from src.output.briefing_writer import (
     format_validation_summary as format_briefing_validation_summary,
 )
 from src.output.briefing_writer import write_briefing
+from src.output.email_sender import (
+    email_dry_run,
+    format_dry_run_summary as format_email_dry_run_summary,
+)
 
 
 VALID_RUN_TYPES = ("eu_open", "us_open", "us_close")
@@ -51,6 +55,7 @@ VALID_STAGES = (
     "headline_repetition",
     "macro_calendar",
     "write_briefing",
+    "email_dry_run",
 )
 
 
@@ -151,6 +156,11 @@ def main() -> None:
         print(f"Stage: {args.stage}")
         print(f"Saved briefing: {output_path}")
         print(format_briefing_validation_summary(summary))
+
+    if args.stage == "email_dry_run":
+        email_payload = email_dry_run(run_type=args.run_type)
+        print(f"Stage: {args.stage}")
+        print(format_email_dry_run_summary(email_payload))
 
 
 if __name__ == "__main__":
