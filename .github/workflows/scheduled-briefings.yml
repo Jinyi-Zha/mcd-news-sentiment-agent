@@ -1,0 +1,103 @@
+name: Scheduled Equities Briefings
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_type:
+        description: "Briefing run type to generate"
+        required: true
+        default: "eu_open"
+        type: choice
+        options:
+          - eu_open
+          - us_open
+          - us_close
+  schedule:
+    # GitHub Actions cron runs in UTC, not Europe/London.
+    # These are London-time equivalents during UK daylight saving time (BST, UTC+1):
+    # - 07:00 UTC = 08:00 London, EU open
+    # - 13:30 UTC = 14:30 London, US open
+    # - 20:00 UTC = 21:00 London, US close
+    # Timezone limitation: GitHub does not auto-adjust cron for London DST.
+    # Review these UTC schedules when London switches between BST and GMT.
+    - cron: "0 7 * * 1-5"
+    - cron: "30 13 * * 1-5"
+    - cron: "0 20 * * 1-5"
+
+permissions:
+  contents: write
+
+jobs:
+  briefing:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Resolve run type
+        id: run_type
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            RUN_TYPE="${{ inputs.run_type }}"
+          else
+            case "${{ github.event.schedule }}" in
+              "0 7 * * 1-5")
+                RUN_TYPE="eu_open"
+                ;;
+              "30 13 * * 1-5")
+                RUN_TYPE="us_open"
+                ;;
+              "0 20 * * 1-5")
+                RUN_TYPE="us_close"
+                ;;
+              *)
+                echo "Unknown schedule: ${{ github.event.schedule }}"
+                exit 1
+                ;;
+            esac
+          fi
+
+          echo "run_type=${RUN_TYPE}" >> "$GITHUB_OUTPUT"
+          echo "Resolved run_type=${RUN_TYPE}"
+
+      - name: Run briefing pipeline
+        run: |
+          RUN_TYPE="${{ steps.run_type.outputs.run_type }}"
+
+          python main.py --run_type "$RUN_TYPE" --stage pull_yahoo
+          python main.py --run_type "$RUN_TYPE" --stage pull_cnbc
+          python main.py --run_type "$RUN_TYPE" --stage combine_raw
+          python main.py --run_type "$RUN_TYPE" --stage filter_equities
+          python main.py --run_type "$RUN_TYPE" --stage filter_recent
+          python main.py --run_type "$RUN_TYPE" --stage ticker_frequency
+          python main.py --run_type "$RUN_TYPE" --stage headline_repetition
+          python main.py --run_type "$RUN_TYPE" --stage macro_calendar
+          python main.py --run_type "$RUN_TYPE" --stage write_briefing
+
+      - name: Commit briefing outputs
+        shell: bash
+        run: |
+          RUN_TYPE="${{ steps.run_type.outputs.run_type }}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -f "outputs/${RUN_TYPE}_briefing.md"
+          git add -f outputs/archive
+
+          if git diff --cached --quiet; then
+            echo "No briefing output changes to commit."
+          else
+            git commit -m "Update ${RUN_TYPE} briefing output"
+            git push
+          fi
