@@ -60,6 +60,14 @@ Run the pipeline stages:
 .venv/bin/python main.py --run_type eu_open --stage run_summary
 ```
 
+Generate the full daily briefing pack for all three run types:
+
+```bash
+.venv/bin/python main.py --run_all
+```
+
+The `--run_all` command runs the full pipeline for `eu_open`, `us_open`, and `us_close`, including briefing generation, email dry-run previews, and run summaries. It is useful for manual demonstrations, project handoff, and local end-to-end checks. GitHub Actions still handles scheduled cloud runs.
+
 Email delivery is currently dry-run only. The `email_dry_run` stage reads the generated Markdown briefing, formats a subject and body preview, and prints a placeholder recipient list. It does not use SMTP, API keys, secrets, or real sending.
 
 The dry-run stage also saves a reviewable Markdown email preview under `outputs/email_preview/`.
