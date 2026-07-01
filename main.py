@@ -34,6 +34,10 @@ from src.processing.time_filter import (
     filter_recent_headlines,
     format_validation_summary as format_recent_validation_summary,
 )
+from src.output.briefing_writer import (
+    format_validation_summary as format_briefing_validation_summary,
+)
+from src.output.briefing_writer import write_briefing
 
 
 VALID_RUN_TYPES = ("eu_open", "us_open", "us_close")
@@ -46,6 +50,7 @@ VALID_STAGES = (
     "ticker_frequency",
     "headline_repetition",
     "macro_calendar",
+    "write_briefing",
 )
 
 
@@ -140,6 +145,12 @@ def main() -> None:
         if not records:
             print("No macro events found for today in the v1 manual calendar.")
         print(format_macro_calendar_validation_summary(summary))
+
+    if args.stage == "write_briefing":
+        output_path, summary = write_briefing(run_type=args.run_type)
+        print(f"Stage: {args.stage}")
+        print(f"Saved briefing: {output_path}")
+        print(format_briefing_validation_summary(summary))
 
 
 if __name__ == "__main__":
