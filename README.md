@@ -18,6 +18,7 @@ A lightweight equities briefing tool for a trading audience. It generates short,
 - Markdown briefing output
 - Email delivery dry-run stub
 - Operational run summary / audit log
+- Lightweight quality validation / warning gate
 - Not a research report
 - Not a trade recommendation
 
@@ -34,6 +35,7 @@ A lightweight equities briefing tool for a trading audience. It generates short,
 9. `write_briefing` - generates the final Markdown briefing.
 10. `email_dry_run` - formats a future delivery email preview without sending it.
 11. `run_summary` - writes an operational run log and archive copy.
+12. `validate_briefing` - checks whether the generated briefing is complete enough for review.
 
 ## How to Run
 
@@ -58,6 +60,7 @@ Run the pipeline stages:
 .venv/bin/python main.py --run_type eu_open --stage write_briefing
 .venv/bin/python main.py --run_type eu_open --stage email_dry_run
 .venv/bin/python main.py --run_type eu_open --stage run_summary
+.venv/bin/python main.py --run_type eu_open --stage validate_briefing
 ```
 
 Generate the full daily briefing pack for all three run types:
@@ -79,6 +82,18 @@ Headline grouping uses rule-based theme aliases plus lightweight token-overlap n
 `KEY TICKERS TO WATCH` is formatted as a trader-style watchlist with mention evidence, market relevance, and watch-next context.
 
 `outputs/run_summary.md` is an operational run log / audit trail. It records the run type, London timestamp, generated files, data counts, quality checks, and any warnings if the run appears incomplete. A timestamped archive copy is also saved under `outputs/archive/YYYY-MM-DD/`.
+
+The validation / warning gate checks whether a generated briefing has the expected sections, enough market themes and key tickers, macro coverage, and related operational outputs. Status meanings:
+
+- `Success` - all core quality checks pass.
+- `Warning` - the briefing exists, but one or more sections, counts, or related outputs look weak or missing.
+- `Failed` - the briefing file is missing or empty.
+
+Run validation manually with:
+
+```bash
+.venv/bin/python main.py --run_type eu_open --stage validate_briefing
+```
 
 ## Run Types
 

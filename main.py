@@ -45,7 +45,9 @@ from src.output.email_sender import (
 )
 from src.output.run_summary import (
     create_run_summary,
+    format_quality_validation_summary,
     format_validation_summary as format_run_summary_validation_summary,
+    validate_briefing_quality,
 )
 
 
@@ -62,6 +64,7 @@ VALID_STAGES = (
     "write_briefing",
     "email_dry_run",
     "run_summary",
+    "validate_briefing",
 )
 RUN_ALL_STAGES = (
     "pull_yahoo",
@@ -75,6 +78,7 @@ RUN_ALL_STAGES = (
     "write_briefing",
     "email_dry_run",
     "run_summary",
+    "validate_briefing",
 )
 
 
@@ -238,6 +242,15 @@ def execute_stage(
             "validation": format_run_summary_validation_summary(summary),
         }
 
+    if stage == "validate_briefing":
+        summary = validate_briefing_quality(run_type=run_type)
+        return {
+            "summary": summary,
+            "output_path": summary["briefing_path"],
+            "message": f"Briefing validation status: {summary['overall_status']}",
+            "validation": format_quality_validation_summary(summary),
+        }
+
     raise ValueError(f"Unsupported stage: {stage}")
 
 
@@ -261,8 +274,15 @@ def run_daily_pack() -> None:
 
         for stage in RUN_ALL_STAGES:
             try:
-                execute_stage(stage=stage, run_type=run_type)
-                print(f"  {stage}: OK")
+                result = execute_stage(stage=stage, run_type=run_type)
+                if stage == "validate_briefing":
+                    status = result["summary"]["overall_status"]
+                    print(f"  {stage}: {status}")
+                    if status == "Failed":
+                        run_type_failed = True
+                        break
+                else:
+                    print(f"  {stage}: OK")
             except Exception as error:  # noqa: BLE001 - run_all should keep operating.
                 print(f"  {stage}: WARNING - {error}")
                 run_type_failed = True
