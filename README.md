@@ -13,6 +13,7 @@ A lightweight equities briefing tool for a trading audience. It generates short,
 - Rule-based filtering
 - Rule-based repeated headline grouping plus lightweight near-duplicate scoring
 - Rule-based ticker frequency
+- Trader-style key ticker watchlist
 - Manual/config-driven v2 macro calendar
 - Markdown briefing output
 - Email delivery dry-run stub
@@ -64,6 +65,8 @@ Macro events are maintained manually in `config/macro_calendar_2026.csv`. This i
 
 Headline grouping uses rule-based theme aliases plus lightweight token-overlap near-duplicate scoring. It does not use embeddings, LLMs, paid APIs, or external services.
 
+`KEY TICKERS TO WATCH` is formatted as a trader-style watchlist with mention evidence, market relevance, and watch-next context.
+
 ## Run Types
 
 - `eu_open` - EU market open briefing.
@@ -98,7 +101,10 @@ TOP HEADLINES
 1. [story] - [source count] sources / [headline count] headlines - [tickers]
 
 KEY TICKERS
-1. [ticker] - inferred [count] / Yahoo feed [count] - [theme]
+1. [ticker] - [theme]
+   Evidence: [inferred count] inferred mentions / Yahoo feed [count]
+   Why it matters: [market relevance]
+   Watch next: [next headline context to monitor]
 
 MACRO CALENDAR
 [time] - [event] - [region] - [importance]

@@ -104,26 +104,64 @@ def market_relevance(record: dict[str, str]) -> str:
     return "Repeated cross-source coverage marks this as an equity-market focus."
 
 
-def ticker_focus_reason(record: dict[str, str]) -> str:
+def ticker_market_context(record: dict[str, str]) -> dict[str, str]:
     ticker = record.get("ticker", "")
-    company_or_theme = record.get("company_or_theme", "")
-    reason_by_ticker = {
-        "AAPL": "iPhone, App Store and regulatory coverage.",
-        "MSFT": "AI/platform spending narrative.",
-        "NVDA": "AI chip and semiconductor leadership coverage.",
-        "AMZN": "AWS and AI infrastructure spending.",
-        "GOOGL": "Search, YouTube and AI-platform coverage.",
-        "META": "Social platforms and digital advertising.",
-        "TSLA": "Autonomy, FSD and delivery headlines.",
-        "NKE": "Earnings-related coverage.",
-        "LLY": "GLP-1 and obesity-drug coverage.",
-        "NVO": "Weight-loss drug headlines.",
-        "REGN": "Healthcare and drug-development coverage.",
-        "CMCSA": "Media and NBCUniversal headlines.",
+    context_by_ticker = {
+        "AAPL": {
+            "why": "Consumer tech, App Store and regulatory coverage remain active.",
+            "watch": "iPhone, App Store and policy headlines.",
+        },
+        "MSFT": {
+            "why": "AI capex and platform spending narratives remain in focus.",
+            "watch": "OpenAI, Azure and mega-cap tech leadership headlines.",
+        },
+        "NVDA": {
+            "why": "AI chips and data-centre demand remain central to semiconductor leadership.",
+            "watch": "chip demand, Blackwell and AI infrastructure headlines.",
+        },
+        "AMZN": {
+            "why": "AWS and cloud infrastructure spending remain key AI investment signals.",
+            "watch": "AWS, cloud capex and AI infrastructure headlines.",
+        },
+        "GOOGL": {
+            "why": "Search, YouTube and AI-platform coverage remain in focus.",
+            "watch": "search, YouTube and AI platform headlines.",
+        },
+        "META": {
+            "why": "Digital ads, social platforms and AI infrastructure remain linked.",
+            "watch": "ad demand, platform engagement and AI spend headlines.",
+        },
+        "TSLA": {
+            "why": "Autonomy, deliveries and EV sentiment remain key swing factors.",
+            "watch": "FSD, robotaxi and delivery-related headlines.",
+        },
+        "NKE": {
+            "why": "Earnings coverage adds single-stock catalyst risk.",
+            "watch": "margin, guidance and demand headlines.",
+        },
+        "LLY": {
+            "why": "GLP-1 and obesity-drug headlines remain healthcare catalysts.",
+            "watch": "coverage, demand and reimbursement headlines.",
+        },
+        "NVO": {
+            "why": "Weight-loss drug coverage remains a healthcare leadership theme.",
+            "watch": "GLP-1 demand and pricing headlines.",
+        },
+        "REGN": {
+            "why": "Drug-development coverage can drive healthcare single-name focus.",
+            "watch": "clinical, regulatory and pipeline headlines.",
+        },
+        "CMCSA": {
+            "why": "Media and NBCUniversal headlines can shape communication services focus.",
+            "watch": "media asset and advertising headlines.",
+        },
     }
-    return reason_by_ticker.get(
+    return context_by_ticker.get(
         ticker,
-        f"{company_or_theme} headline flow.",
+        {
+            "why": "Repeated headline mentions suggest market attention is building.",
+            "watch": "whether the ticker remains prominent across sources.",
+        },
     )
 
 
@@ -210,14 +248,16 @@ def render_briefing(
 
     lines.extend(["", "KEY TICKERS TO WATCH"])
     for index, record in enumerate(ticker_records, start=1):
+        ticker_context = ticker_market_context(record)
         lines.extend(
             [
+                f"{index}. {record['ticker']} — {record['company_or_theme']}",
                 (
-                    f"{index}. {record['ticker']} — {record['company_or_theme']} — "
-                    f"inferred {record['inferred_count']} / Yahoo feed "
-                    f"{record['yahoo_feed_count']}"
+                    f"   Evidence: {record['inferred_count']} inferred mentions / "
+                    f"Yahoo feed {record['yahoo_feed_count']}"
                 ),
-                f"   Why watch: {ticker_focus_reason(record)}",
+                f"   Why it matters: {ticker_context['why']}",
+                f"   Watch next: {ticker_context['watch']}",
             ]
         )
 
@@ -281,6 +321,7 @@ def build_validation_summary(
         "top_headlines_included": len(repeated_headlines),
         "key_tickers_included": len(ticker_records),
         "macro_events_included": len(macro_records),
+        "trader_style_ticker_formatting_applied": True,
         "line_count": len(briefing_text.splitlines()),
     }
 
@@ -293,6 +334,10 @@ def format_validation_summary(summary: dict[str, Any]) -> str:
             f"Archive path: {summary['archive_path']}",
             f"Top headlines included: {summary['top_headlines_included']}",
             f"Key tickers included: {summary['key_tickers_included']}",
+            (
+                "Trader-style ticker formatting applied: "
+                f"{summary['trader_style_ticker_formatting_applied']}"
+            ),
             f"Macro events included: {summary['macro_events_included']}",
             f"Approximate line count: {summary['line_count']}",
         ]
