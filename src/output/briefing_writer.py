@@ -79,6 +79,104 @@ def macro_events(records: list[dict[str, str]], limit: int = 5) -> list[dict[str
     return sorted_records[:limit]
 
 
+def market_relevance(record: dict[str, str]) -> str:
+    label = record.get("story_label", "").lower()
+
+    if "tesla" in label:
+        return "Autonomy and deliveries keep high-beta EV sentiment in focus."
+    if "microsoft" in label or "openai" in label or "azure" in label:
+        return "AI and cloud narratives keep mega-cap tech in focus."
+    if "magnificent" in label or "big tech" in label:
+        return "Mega-cap tech breadth remains central to index direction."
+    if "ipo" in label or "m&a" in label or "deal" in label:
+        return "Deal flow may influence risk appetite and single-stock catalysts."
+    if "alphabet" in label or "google" in label:
+        return "Search, YouTube and AI coverage keep communication services in focus."
+    if "apple" in label:
+        return "iPhone and App Store coverage keeps consumer tech in focus."
+    if "amazon" in label or "aws" in label:
+        return "AWS headlines keep AI infrastructure spending in focus."
+    if "meta" in label:
+        return "Social platforms keep digital advertising exposure in focus."
+    if "nvidia" in label or "semiconductor" in label:
+        return "Chip coverage could affect semiconductor leadership."
+
+    return "Repeated cross-source coverage marks this as an equity-market focus."
+
+
+def ticker_focus_reason(record: dict[str, str]) -> str:
+    ticker = record.get("ticker", "")
+    company_or_theme = record.get("company_or_theme", "")
+    reason_by_ticker = {
+        "AAPL": "iPhone, App Store and regulatory coverage.",
+        "MSFT": "AI/platform spending narrative.",
+        "NVDA": "AI chip and semiconductor leadership coverage.",
+        "AMZN": "AWS and AI infrastructure spending.",
+        "GOOGL": "Search, YouTube and AI-platform coverage.",
+        "META": "Social platforms and digital advertising.",
+        "TSLA": "Autonomy, FSD and delivery headlines.",
+        "NKE": "Earnings-related coverage.",
+        "LLY": "GLP-1 and obesity-drug coverage.",
+        "NVO": "Weight-loss drug headlines.",
+        "REGN": "Healthcare and drug-development coverage.",
+        "CMCSA": "Media and NBCUniversal headlines.",
+    }
+    return reason_by_ticker.get(
+        ticker,
+        f"{company_or_theme} headline flow.",
+    )
+
+
+def executive_summary(repeated_headlines: list[dict[str, str]]) -> list[str]:
+    summary_lines = []
+    for record in repeated_headlines[:3]:
+        summary_lines.append(
+            (
+                f"- {record['story_label']} remains in focus: "
+                f"{record['source_count']} sources / {record['headline_count']} headlines. "
+                f"{market_relevance(record)}"
+            )
+        )
+
+    return summary_lines
+
+
+def next_watch_points(
+    repeated_headlines: list[dict[str, str]],
+    ticker_records: list[dict[str, str]],
+    macro_records: list[dict[str, str]],
+) -> list[str]:
+    watch_points = []
+
+    if repeated_headlines:
+        top_theme = repeated_headlines[0]
+        watch_points.append(
+            f"- Top theme: watch whether {top_theme['story_label']} broadens or fades."
+        )
+
+    if ticker_records:
+        tickers = ", ".join(record["ticker"] for record in ticker_records[:3])
+        watch_points.append(
+            f"- Key tickers: watch follow-through in {tickers}."
+        )
+
+    high_importance_events = [
+        record["event"]
+        for record in macro_records
+        if record.get("importance", "").lower() == "high"
+    ]
+    if high_importance_events:
+        watch_points.append(
+            f"- Macro: {', '.join(high_importance_events[:2])} may move rates, FX, futures and sectors."
+        )
+    else:
+        watch_points.append(
+            "- Macro: light calendar; equity themes may drive the session."
+        )
+
+    return watch_points[:3]
+
+
 def render_briefing(
     run_type: str,
     repeated_headlines: list[dict[str, str]],
@@ -90,34 +188,40 @@ def render_briefing(
     lines = [
         f"MCD Capital — Equities Briefing | {run_label} | {london_now:%Y-%m-%d %H:%M %Z}",
         "",
-        "TOP HEADLINES",
+        "EXECUTIVE SUMMARY",
+        *executive_summary(repeated_headlines),
+        "",
+        "TOP MARKET THEMES",
     ]
 
     for index, record in enumerate(repeated_headlines, start=1):
         lines.extend(
             [
+                f"{index}. Theme: {record['story_label']}",
+                f"   Tickers: {record['related_tickers'] or 'N/A'}",
                 (
-                    f"{index}. {record['story_label']} — "
-                    f"{record['source_count']} sources / "
-                    f"{record['headline_count']} headlines — "
-                    f"{record['related_tickers'] or 'N/A'}"
+                    f"   Evidence: {record['source_count']} sources / "
+                    f"{record['headline_count']} headlines"
                 ),
                 f"   Rep: {record['representative_headline']}",
-                "",
+                f"   Relevance: {market_relevance(record)}",
             ]
         )
 
-    lines.append("KEY TICKERS")
+    lines.extend(["", "KEY TICKERS TO WATCH"])
     for index, record in enumerate(ticker_records, start=1):
-        lines.append(
-            (
-                f"{index}. {record['ticker']} — inferred "
-                f"{record['inferred_count']} / Yahoo feed "
-                f"{record['yahoo_feed_count']} — {record['company_or_theme']}"
-            )
+        lines.extend(
+            [
+                (
+                    f"{index}. {record['ticker']} — {record['company_or_theme']} — "
+                    f"inferred {record['inferred_count']} / Yahoo feed "
+                    f"{record['yahoo_feed_count']}"
+                ),
+                f"   Why watch: {ticker_focus_reason(record)}",
+            ]
         )
 
-    lines.extend(["", "MACRO CALENDAR"])
+    lines.extend(["", "MACRO WATCH"])
     if macro_records:
         for record in macro_records:
             lines.append(
@@ -128,6 +232,15 @@ def render_briefing(
             )
     else:
         lines.append("No major macro events in the v1 manual calendar.")
+
+    lines.extend(
+        [
+            "High-importance events may affect index futures, rates, FX, and sector leadership.",
+            "",
+            "NEXT WATCH POINTS",
+            *next_watch_points(repeated_headlines, ticker_records, macro_records),
+        ]
+    )
 
     lines.extend(
         [
