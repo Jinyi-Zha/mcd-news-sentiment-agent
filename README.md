@@ -4,6 +4,8 @@
 
 A lightweight equities briefing tool for a trading audience. It generates short, scannable market briefings for EU open, US open, and US close.
 
+See `WALKTHROUGH.md` for a 15-minute project walkthrough and handoff guide.
+
 ## V1 Scope
 
 - Equities only
