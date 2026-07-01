@@ -142,6 +142,12 @@ def output_path_for_run_type(run_type: str) -> Path:
     return OUTPUT_DIR / f"{run_type}_briefing.md"
 
 
+def archive_path_for_run_type(run_type: str, london_now: datetime) -> Path:
+    date_part = london_now.strftime("%Y-%m-%d")
+    time_part = london_now.strftime("%Y-%m-%d_%H%M")
+    return OUTPUT_DIR / "archive" / date_part / f"{run_type}_briefing_{time_part}.md"
+
+
 def write_text(output_path: Path, text: str) -> Path:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(text, encoding="utf-8")
@@ -150,6 +156,7 @@ def write_text(output_path: Path, text: str) -> Path:
 
 def build_validation_summary(
     output_path: Path,
+    archive_path: Path,
     repeated_headlines: list[dict[str, str]],
     ticker_records: list[dict[str, str]],
     macro_records: list[dict[str, str]],
@@ -157,6 +164,7 @@ def build_validation_summary(
 ) -> dict[str, Any]:
     return {
         "output_path": str(output_path),
+        "archive_path": str(archive_path),
         "top_headlines_included": len(repeated_headlines),
         "key_tickers_included": len(ticker_records),
         "macro_events_included": len(macro_records),
@@ -169,6 +177,7 @@ def format_validation_summary(summary: dict[str, Any]) -> str:
         [
             "Briefing writer validation summary:",
             f"Output path: {summary['output_path']}",
+            f"Archive path: {summary['archive_path']}",
             f"Top headlines included: {summary['top_headlines_included']}",
             f"Key tickers included: {summary['key_tickers_included']}",
             f"Macro events included: {summary['macro_events_included']}",
@@ -192,8 +201,10 @@ def write_briefing(run_type: str) -> tuple[Path, dict[str, Any]]:
         london_now=london_now,
     )
     output_path = write_text(output_path_for_run_type(run_type), briefing_text)
+    archive_path = write_text(archive_path_for_run_type(run_type, london_now), briefing_text)
     summary = build_validation_summary(
         output_path=output_path,
+        archive_path=archive_path,
         repeated_headlines=repeated_headline_records,
         ticker_records=ticker_records,
         macro_records=macro_records,
