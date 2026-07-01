@@ -58,6 +58,8 @@ Run the pipeline stages:
 
 Email delivery is currently dry-run only. The `email_dry_run` stage reads the generated Markdown briefing, formats a subject and body preview, and prints a placeholder recipient list. It does not use SMTP, API keys, secrets, or real sending.
 
+The dry-run stage also saves a reviewable Markdown email preview under `outputs/email_preview/`.
+
 ## Run Types
 
 - `eu_open` - EU market open briefing.
@@ -81,6 +83,9 @@ For sample outputs, a 24-hour lookback can be used if local data is stale:
 - `outputs/eu_open_briefing.md`
 - `outputs/us_open_briefing.md`
 - `outputs/us_close_briefing.md`
+- `outputs/email_preview/eu_open_email.md`
+- `outputs/email_preview/us_open_email.md`
+- `outputs/email_preview/us_close_email.md`
 
 ## Output Format
 

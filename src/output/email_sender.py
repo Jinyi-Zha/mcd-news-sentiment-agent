@@ -5,6 +5,7 @@ from zoneinfo import ZoneInfo
 
 
 OUTPUT_DIR = Path("outputs")
+EMAIL_PREVIEW_DIR = OUTPUT_DIR / "email_preview"
 LONDON_TZ = ZoneInfo("Europe/London")
 RUN_TYPE_LABELS = {
     "eu_open": "EU Open",
@@ -17,6 +18,10 @@ BODY_PREVIEW_CHAR_LIMIT = 1200
 
 def briefing_path_for_run_type(run_type: str) -> Path:
     return OUTPUT_DIR / f"{run_type}_briefing.md"
+
+
+def preview_path_for_run_type(run_type: str) -> Path:
+    return EMAIL_PREVIEW_DIR / f"{run_type}_email.md"
 
 
 def build_email_from_briefing(
@@ -46,6 +51,36 @@ def build_email_from_briefing(
     }
 
 
+def render_email_preview_markdown(email_payload: dict[str, Any]) -> str:
+    return "\n".join(
+        [
+            "# Email Delivery Preview",
+            "",
+            f"Recipient list placeholder: {', '.join(email_payload['recipients'])}",
+            f"Subject: {email_payload['subject']}",
+            f"Source briefing path: {email_payload['source_briefing_path']}",
+            "",
+            "## Email Body",
+            "",
+            email_payload["body"].rstrip(),
+            "",
+        ]
+    )
+
+
+def save_email_preview(
+    email_payload: dict[str, Any],
+    run_type: str,
+) -> Path:
+    preview_path = preview_path_for_run_type(run_type)
+    preview_path.parent.mkdir(parents=True, exist_ok=True)
+    preview_path.write_text(
+        render_email_preview_markdown(email_payload),
+        encoding="utf-8",
+    )
+    return preview_path
+
+
 def preview_body(body: str, char_limit: int = BODY_PREVIEW_CHAR_LIMIT) -> str:
     if len(body) <= char_limit:
         return body
@@ -70,6 +105,7 @@ def format_dry_run_summary(email_payload: dict[str, Any]) -> str:
             f"Recipient list placeholder: {', '.join(email_payload['recipients'])}",
             f"Subject: {email_payload['subject']}",
             f"Source briefing path: {email_payload['source_briefing_path']}",
+            f"Saved preview path: {email_payload['preview_path']}",
             "Body preview:",
             preview_body(email_payload["body"]),
         ]
@@ -77,4 +113,7 @@ def format_dry_run_summary(email_payload: dict[str, Any]) -> str:
 
 
 def email_dry_run(run_type: str) -> dict[str, Any]:
-    return build_email_from_briefing(run_type=run_type)
+    email_payload = build_email_from_briefing(run_type=run_type)
+    preview_path = save_email_preview(email_payload, run_type=run_type)
+    email_payload["preview_path"] = preview_path
+    return email_payload

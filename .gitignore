@@ -37,3 +37,6 @@ outputs/*
 !outputs/.gitkeep
 !outputs/archive/
 !outputs/archive/**
+!outputs/email_preview/
+outputs/email_preview/*
+!outputs/email_preview/.gitkeep
