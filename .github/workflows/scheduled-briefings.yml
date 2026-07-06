@@ -83,6 +83,9 @@ jobs:
           python main.py --run_type "$RUN_TYPE" --stage headline_repetition
           python main.py --run_type "$RUN_TYPE" --stage macro_calendar
           python main.py --run_type "$RUN_TYPE" --stage write_briefing
+          python main.py --run_type "$RUN_TYPE" --stage email_dry_run
+          python main.py --run_type "$RUN_TYPE" --stage run_summary
+          python main.py --run_type "$RUN_TYPE" --stage validate_briefing
 
       - name: Commit briefing outputs
         shell: bash
@@ -93,6 +96,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add -f "outputs/${RUN_TYPE}_briefing.md"
+          git add -f "outputs/email_preview/${RUN_TYPE}_email.md"
+          git add -f outputs/run_summary.md
           git add -f outputs/archive
 
           if git diff --cached --quiet; then
