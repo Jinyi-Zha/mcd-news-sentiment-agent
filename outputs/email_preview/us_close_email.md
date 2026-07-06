@@ -1,35 +1,65 @@
 # Email Delivery Preview
 
 Recipient list placeholder: <recipient-list-placeholder>
-Subject: MCD Equities Briefing | US Close | 2026-07-01 16:40 London
+Subject: MCD Equities Briefing | US Close | 2026-07-06 22:41 London
 Source briefing path: outputs/us_close_briefing.md
 
 ## Email Body
 
-MCD Capital — Equities Briefing | US Close | 2026-07-01 15:00 BST
+MCD Capital — Equities Briefing | US Close | 2026-07-06 22:41 BST
 
-TOP HEADLINES
-1. Meta / Facebook / Instagram / WhatsApp — 7 sources / 20 headlines — META
-   Rep: Meta stock pops on news it will reportedly start a cloud computing business
+EXECUTIVE SUMMARY
+- Microsoft / OpenAI / Azure remains in focus: 6 sources / 7 headlines. AI and cloud narratives keep mega-cap tech in focus.
+- Nvidia / AI chip / Blackwell / semiconductor remains in focus: 5 sources / 11 headlines. Chip coverage could affect semiconductor leadership.
+- Tesla / FSD / deliveries / robotaxi remains in focus: 4 sources / 10 headlines. Autonomy and deliveries keep high-beta EV sentiment in focus.
 
-2. Tesla / FSD / deliveries / robotaxi — 4 sources / 5 headlines — TSLA
-   Rep: Tesla’s Chip Breakthrough Is a Big Deal. Time to Buy the Surge?
+TOP MARKET THEMES
+1. Theme: Microsoft / OpenAI / Azure
+   Tickers: MSFT
+   Evidence: 6 sources / 7 headlines
+   Rep: Microsoft to cut 3,200 jobs amid Xbox restructuring. 'Our business ... is not healthy.'
+   Relevance: AI and cloud narratives keep mega-cap tech in focus.
+2. Theme: Nvidia / AI chip / Blackwell / semiconductor
+   Tickers: NVDA
+   Evidence: 5 sources / 11 headlines
+   Rep: 1 Analyst Says This Chip Stock Could Soar 625% to Join Nvidia in the $5 Trillion Club
+   Relevance: Chip coverage could affect semiconductor leadership.
+3. Theme: Tesla / FSD / deliveries / robotaxi
+   Tickers: TSLA
+   Evidence: 4 sources / 10 headlines
+   Rep: Stock Market Today: Dow Up, AI Stock Tests Entry; SpaceX Tumbles As Elon Musk Makes This Boast (Live Coverage)
+   Relevance: Autonomy and deliveries keep high-beta EV sentiment in focus.
+4. Theme: Meta / Facebook / Instagram / WhatsApp
+   Tickers: META
+   Evidence: 4 sources / 4 headlines
+   Rep: Mark Zuckerberg wants in on prediction markets. Meta's reported plans sent these stocks lower as a result
+   Relevance: Social platforms keep digital advertising exposure in focus.
 
-3. Apple / iPhone / App Store — 4 sources / 4 headlines — AAPL
-   Rep: President Trump Reveals Million-Dollar Apple and Palantir Stakes
+KEY TICKERS TO WATCH
+1. NVDA — Nvidia / AI chip / Blackwell
+   Evidence: 10 inferred mentions / Yahoo feed 10
+   Why it matters: AI chips and data-centre demand remain central to semiconductor leadership.
+   Watch next: chip demand, Blackwell and AI infrastructure headlines.
+2. TSLA — Tesla / Elon Musk / FSD
+   Evidence: 10 inferred mentions / Yahoo feed 9
+   Why it matters: Autonomy, deliveries and EV sentiment remain key swing factors.
+   Watch next: FSD, robotaxi and delivery-related headlines.
+3. MSFT — Microsoft / OpenAI / Azure
+   Evidence: 7 inferred mentions / Yahoo feed 10
+   Why it matters: AI capex and platform spending narratives remain in focus.
+   Watch next: OpenAI, Azure and mega-cap tech leadership headlines.
+4. META — Meta / Facebook / Instagram / WhatsApp
+   Evidence: 4 inferred mentions / Yahoo feed 9
+   Why it matters: Digital ads, social platforms and AI infrastructure remain linked.
+   Watch next: ad demand, platform engagement and AI spend headlines.
 
-4. Magnificent Seven / Big Tech / AI spending — 3 sources / 6 headlines — AAPL; AMZN; GOOGL; META; MSFT; NVDA; TSLA
-   Rep: As Big Tech showers employees with perks to win the talent war, Nvidia built a nearly $5 trillion company by making people pay for their own lunch
+MACRO WATCH
+No major macro events in the v1 manual calendar.
+High-importance events may affect index futures, rates, FX, and sector leadership.
 
-KEY TICKERS
-1. META — inferred 20 / Yahoo feed 9 — Meta / Facebook / Instagram / WhatsApp
-2. AAPL — inferred 4 / Yahoo feed 10 — Apple / iPhone / App Store
-3. TSLA — inferred 4 / Yahoo feed 10 — Tesla / Elon Musk / FSD
-4. MSFT — inferred 3 / Yahoo feed 10 — Microsoft / OpenAI / Azure
-
-MACRO CALENDAR
-09:30 — UK Manufacturing PMI final — UK — medium
-14:45 — US S&P Global Manufacturing PMI final — US — medium
-15:00 — US ISM Manufacturing PMI — US — high
+NEXT WATCH POINTS
+- Top theme: watch whether Microsoft / OpenAI / Azure broadens or fades.
+- Key tickers: watch follow-through in NVDA, TSLA, MSFT.
+- Macro: light calendar; equity themes may drive the session.
 
 Generated automatically. Not a trade recommendation.
