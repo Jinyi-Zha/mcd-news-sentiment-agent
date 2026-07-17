@@ -1,65 +1,65 @@
 # Email Delivery Preview
 
 Recipient list placeholder: <recipient-list-placeholder>
-Subject: MCD Equities Briefing | US Close | 2026-07-16 22:08 London
+Subject: MCD Equities Briefing | US Close | 2026-07-17 22:02 London
 Source briefing path: outputs/us_close_briefing.md
 
 ## Email Body
 
-MCD Capital — Equities Briefing | US Close | 2026-07-16 22:08 BST
+MCD Capital — Equities Briefing | US Close | 2026-07-17 22:02 BST
 
 EXECUTIVE SUMMARY
-- Alphabet / Google / YouTube remains in focus: 4 sources / 7 headlines. Search, YouTube and AI coverage keep communication services in focus.
-- Apple / iPhone / App Store remains in focus: 4 sources / 7 headlines. iPhone and App Store coverage keeps consumer tech in focus.
-- Magnificent Seven / Big Tech / AI spending remains in focus: 3 sources / 11 headlines. Mega-cap tech breadth remains central to index direction.
+- Nvidia / AI chip / Blackwell / semiconductor remains in focus: 6 sources / 7 headlines. Chip coverage could affect semiconductor leadership.
+- Tesla / FSD / deliveries / robotaxi remains in focus: 5 sources / 7 headlines. Autonomy and deliveries keep high-beta EV sentiment in focus.
+- Meta / Facebook / Instagram / WhatsApp remains in focus: 5 sources / 6 headlines. Social platforms keep digital advertising exposure in focus.
 
 TOP MARKET THEMES
-1. Theme: Alphabet / Google / YouTube
-   Tickers: GOOGL
-   Evidence: 4 sources / 7 headlines
-   Rep: Microsoft Stock Rises. Why It's Taking On OpenAI, Google, and Anthropic
-   Relevance: Search, YouTube and AI coverage keep communication services in focus.
-2. Theme: Apple / iPhone / App Store
-   Tickers: AAPL
-   Evidence: 4 sources / 7 headlines
-   Rep: Apple's New iPhone Is Going to Cost Significantly More Than Last Year. That's Great News for These 2 Potential Millionaire-Maker Stocks.
-   Relevance: iPhone and App Store coverage keeps consumer tech in focus.
-3. Theme: Magnificent Seven / Big Tech / AI spending
-   Tickers: AAPL; AMZN; GOOGL; META; MSFT; NVDA; TSLA
-   Evidence: 3 sources / 11 headlines
-   Rep: The "Magnificent Seven" Are at Their Lowest Relative Valuations in a Decade. My 3 Favorite Mag 7 Stocks to Buy.
-   Relevance: Mega-cap tech breadth remains central to index direction.
-4. Theme: Tesla / FSD / deliveries / robotaxi
+1. Theme: Nvidia / AI chip / Blackwell / semiconductor
+   Tickers: NVDA
+   Evidence: 6 sources / 7 headlines
+   Rep: Apple reclaims world's most valuable company as Nvidia slips
+   Relevance: Chip coverage could affect semiconductor leadership.
+2. Theme: Tesla / FSD / deliveries / robotaxi
    Tickers: TSLA
-   Evidence: 3 sources / 8 headlines
-   Rep: Should You Buy Tesla Stock Before July 22?
+   Evidence: 5 sources / 7 headlines
+   Rep: Agility Robotics plants its flag in Tesla’s backyard
    Relevance: Autonomy and deliveries keep high-beta EV sentiment in focus.
+3. Theme: Meta / Facebook / Instagram / WhatsApp
+   Tickers: META
+   Evidence: 5 sources / 6 headlines
+   Rep: Meta Platforms: AI Return on Invested Capital Is Uncertain (NASDAQ:META)
+   Relevance: Social platforms keep digital advertising exposure in focus.
+4. Theme: Amazon / AWS
+   Tickers: AMZN
+   Evidence: 4 sources / 5 headlines
+   Rep: Amazon just beat Starlink to a market Musk can't crack
+   Relevance: AWS headlines keep AI infrastructure spending in focus.
 
 KEY TICKERS TO WATCH
-1. TSLA — Tesla / Elon Musk / FSD
-   Evidence: 8 inferred mentions / Yahoo feed 9
-   Why it matters: Autonomy, deliveries and EV sentiment remain key swing factors.
-   Watch next: FSD, robotaxi and delivery-related headlines.
-2. AAPL — Apple / iPhone / App Store
-   Evidence: 7 inferred mentions / Yahoo feed 9
+1. AAPL — Apple / iPhone / App Store
+   Evidence: 11 inferred mentions / Yahoo feed 10
    Why it matters: Consumer tech, App Store and regulatory coverage remain active.
    Watch next: iPhone, App Store and policy headlines.
-3. GOOGL — Alphabet / Google / YouTube
-   Evidence: 7 inferred mentions / Yahoo feed 8
-   Why it matters: Search, YouTube and AI-platform coverage remain in focus.
-   Watch next: search, YouTube and AI platform headlines.
-4. MSFT — Microsoft / OpenAI / Azure
-   Evidence: 5 inferred mentions / Yahoo feed 10
-   Why it matters: AI capex and platform spending narratives remain in focus.
-   Watch next: OpenAI, Azure and mega-cap tech leadership headlines.
+2. TSLA — Tesla / Elon Musk / FSD
+   Evidence: 7 inferred mentions / Yahoo feed 10
+   Why it matters: Autonomy, deliveries and EV sentiment remain key swing factors.
+   Watch next: FSD, robotaxi and delivery-related headlines.
+3. META — Meta / Facebook / Instagram / WhatsApp
+   Evidence: 6 inferred mentions / Yahoo feed 10
+   Why it matters: Digital ads, social platforms and AI infrastructure remain linked.
+   Watch next: ad demand, platform engagement and AI spend headlines.
+4. NVDA — Nvidia / AI chip / Blackwell
+   Evidence: 6 inferred mentions / Yahoo feed 10
+   Why it matters: AI chips and data-centre demand remain central to semiconductor leadership.
+   Watch next: chip demand, Blackwell and AI infrastructure headlines.
 
 MACRO WATCH
 No major macro events in the v1 manual calendar.
 High-importance events may affect index futures, rates, FX, and sector leadership.
 
 NEXT WATCH POINTS
-- Top theme: watch whether Alphabet / Google / YouTube broadens or fades.
-- Key tickers: watch follow-through in TSLA, AAPL, GOOGL.
+- Top theme: watch whether Nvidia / AI chip / Blackwell / semiconductor broadens or fades.
+- Key tickers: watch follow-through in AAPL, TSLA, META.
 - Macro: light calendar; equity themes may drive the session.
 
 Generated automatically. Not a trade recommendation.
