@@ -28,6 +28,11 @@ Timestamped archive files are saved under:
 
 The latest files are overwritten on each run and are useful for quick review. The archive files keep timestamped copies, which makes it easier to audit what was generated at a specific run time.
 
+The deployed Streamlit dashboard provides browser-based access to the latest briefings,
+on-demand refreshes, session-specific run status, quality checks, and Markdown downloads:
+
+- https://mcd-news-sentiment-agent.streamlit.app/
+
 ## 3. How to Run It Locally
 
 Set up the local environment:
@@ -35,6 +40,12 @@ Set up the local environment:
 ```bash
 python -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
+```
+
+Launch the dashboard locally:
+
+```bash
+.venv/bin/streamlit run dashboard.py
 ```
 
 Run individual review stages:
@@ -100,7 +111,10 @@ GitHub Actions is configured to run the workflow automatically for:
 
 GitHub Actions cron schedules use UTC. Because London switches between GMT and BST, the scheduled times should be reviewed when daylight saving changes. The workflow can also be run manually through the GitHub Actions tab.
 
-No new workflow logic is added by this walkthrough.
+The scheduled workflow commits the latest briefing outputs and timestamped archives back
+to the repository. Streamlit Community Cloud monitors the repository and updates the live
+dashboard after committed changes. The dashboard also supports an on-demand refresh for
+the selected session.
 
 ## 6. Briefing Format
 
@@ -149,16 +163,16 @@ Example checks include:
 - No live execution or trading
 - Email is dry-run only
 - Macro calendar is config-driven/manual v2
-- No dashboard yet
-- Sample output depends on available local headline data
+- Coverage is currently limited to the seven-ticker default watchlist
+- Outputs depend on the availability of the public Yahoo Finance and CNBC feeds
+- Rule-based grouping and lightweight near-duplicate scoring may overlap themes
 
 ## 10. Suggested Future Improvements
 
 - Connect compliant SMTP, Gmail, Outlook, Slack, or Teams delivery
-- Improve source coverage
+- Improve compliant source and ticker coverage
 - Integrate a compliant economic calendar API
 - Add richer duplicate detection or optional LLM-assisted classification
-- Add a dashboard only after the pipeline is stable
 - Add more robust monitoring and error alerts
 
 ## 11. Review Checklist
@@ -171,6 +185,8 @@ Example checks include:
 - Run summary exists
 - Validation gate exists
 - `run_all` command exists
+- Streamlit dashboard is deployed
+- Public URL works in a private browser window
 
 ## 12. Final Note
 

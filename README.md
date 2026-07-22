@@ -7,6 +7,8 @@ A lightweight equities briefing tool for a trading audience. It generates short,
 The project also includes a Streamlit dashboard for browser-based access to the latest
 briefings, on-demand refreshes, run status, and Markdown downloads.
 
+**Live dashboard:** https://mcd-news-sentiment-agent.streamlit.app/
+
 See `WALKTHROUGH.md` for a 15-minute project walkthrough and handoff guide.
 
 ## V1 Scope
@@ -24,6 +26,8 @@ See `WALKTHROUGH.md` for a 15-minute project walkthrough and handoff guide.
 - Email delivery dry-run stub
 - Operational run summary / audit log
 - Lightweight quality validation / warning gate
+- Streamlit dashboard with on-demand refresh and session-specific run status
+- Scheduled weekday cloud runs through GitHub Actions
 - Not a research report
 - Not a trade recommendation
 
@@ -166,21 +170,21 @@ running Streamlit instance.
 ## Current Limitations
 
 - Macro calendar is manual/config-driven v2 and depends on `config/macro_calendar_2026.csv`
-- No live scheduler yet
 - Email delivery is dry-run only; no real sending yet
 - No LLM classification
 - No paid data sources
+- Coverage is currently limited to the seven-ticker default watchlist
 - Rule-based grouping and lightweight near-duplicate scoring may overlap themes
-- Sample outputs depend on locally available headline data
+- Outputs depend on the availability of the public Yahoo Finance and CNBC feeds
 
 ## Suggested Future Improvements
 
-- Automated scheduler
 - More robust economic calendar source, such as Trading Economics, FRED, or another compliant calendar API
+- Broader compliant news and ticker coverage
 - Better duplicate and near-duplicate detection
 - Optional LLM-assisted classification after rule-based v1 is stable
-- Production email or Slack distribution
-- Dashboard only after core pipeline is reliable
+- Production email, Slack, or Teams distribution
+- More robust monitoring, source-health checks, and error alerts
 
 ## Final Delivery Notes
 
