@@ -43,6 +43,29 @@ def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8")
 
 
+def read_latest_run_summary(run_type: str) -> str:
+    """Return the newest archived run summary for the selected session."""
+    archive_dir = BASE_DIR / "outputs" / "archive"
+    archived_summaries = sorted(
+        archive_dir.glob(f"*/run_summary_{run_type}_*.md"),
+        reverse=True,
+    )
+    if archived_summaries:
+        summary = read_text(archived_summaries[0])
+    else:
+        # Keep a fallback for a newly cloned project before its first archive run.
+        summary = read_text(BASE_DIR / "outputs" / "run_summary.md")
+
+    # A day with no scheduled macro event is valid coverage, but older summaries
+    # label that passing check as "At least 1 macro event". Clarify it in the UI.
+    if "- Macro events included: 0" in summary:
+        summary = summary.replace(
+            "- At least 1 macro event: OK",
+            "- Macro calendar coverage checked: OK",
+        )
+    return summary
+
+
 def briefing_for_streamlit(raw_text: str) -> str:
     """Add Markdown headings while preserving the generated briefing text."""
     lines = raw_text.splitlines()
@@ -179,7 +202,7 @@ else:
         )
 
     with operations_tab:
-        run_summary = read_text(BASE_DIR / "outputs" / "run_summary.md")
+        run_summary = read_latest_run_summary(selected_run_type)
         if run_summary:
             st.markdown(run_summary)
         else:
