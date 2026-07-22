@@ -4,6 +4,9 @@
 
 A lightweight equities briefing tool for a trading audience. It generates short, scannable market briefings for EU open, US open, and US close.
 
+The project also includes a Streamlit dashboard for browser-based access to the latest
+briefings, on-demand refreshes, run status, and Markdown downloads.
+
 See `WALKTHROUGH.md` for a 15-minute project walkthrough and handoff guide.
 
 ## V1 Scope
@@ -46,6 +49,12 @@ Set up the local environment:
 ```bash
 python -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
+```
+
+Launch the web dashboard locally:
+
+```bash
+.venv/bin/streamlit run dashboard.py
 ```
 
 Run the pipeline stages:
@@ -143,13 +152,23 @@ MACRO CALENDAR
 Generated automatically. Not a trade recommendation.
 ```
 
+## Streamlit Community Cloud Deployment
+
+1. Connect this GitHub repository at `share.streamlit.io`.
+2. Select the `main` branch and set the app file to `dashboard.py`.
+3. Deploy the app. This project currently requires no API keys or other secrets.
+4. Test the resulting `https://...streamlit.app` URL in a private browser window.
+
+The dashboard displays the latest briefing files committed by the scheduled GitHub
+Actions workflow. Its refresh button can also generate an on-demand briefing inside the
+running Streamlit instance.
+
 ## Current Limitations
 
 - Macro calendar is manual/config-driven v2 and depends on `config/macro_calendar_2026.csv`
 - No live scheduler yet
 - Email delivery is dry-run only; no real sending yet
 - No LLM classification
-- No dashboard
 - No paid data sources
 - Rule-based grouping and lightweight near-duplicate scoring may overlap themes
 - Sample outputs depend on locally available headline data
