@@ -1,65 +1,65 @@
 # Email Delivery Preview
 
 Recipient list placeholder: <recipient-list-placeholder>
-Subject: MCD Equities Briefing | EU Open | 2026-07-24 10:16 London
+Subject: MCD Equities Briefing | EU Open | 2026-07-27 11:35 London
 Source briefing path: outputs/eu_open_briefing.md
 
 ## Email Body
 
-MCD Capital — Equities Briefing | EU Open | 2026-07-24 10:16 BST
+MCD Capital — Equities Briefing | EU Open | 2026-07-27 11:35 BST
 
 EXECUTIVE SUMMARY
-- Alphabet / Google / YouTube remains in focus: 5 sources / 10 headlines. Search, YouTube and AI coverage keep communication services in focus.
-- Tesla / FSD / deliveries / robotaxi remains in focus: 4 sources / 5 headlines. Autonomy and deliveries keep high-beta EV sentiment in focus.
-- Amazon / AWS remains in focus: 2 sources / 4 headlines. AWS headlines keep AI infrastructure spending in focus.
+- Nvidia / AI chip / Blackwell / semiconductor remains in focus: 4 sources / 10 headlines. Chip coverage could affect semiconductor leadership.
+- Alphabet / Google / YouTube remains in focus: 4 sources / 9 headlines. Search, YouTube and AI coverage keep communication services in focus.
+- Apple / iPhone / App Store remains in focus: 4 sources / 8 headlines. iPhone and App Store coverage keeps consumer tech in focus.
 
 TOP MARKET THEMES
-1. Theme: Alphabet / Google / YouTube
+1. Theme: Nvidia / AI chip / Blackwell / semiconductor
+   Tickers: NVDA
+   Evidence: 4 sources / 10 headlines
+   Rep: Nasdaq Futures Lead US Premarket Rally As Iran Ceasefire Reports Ease Fears Ahead Of Big Tech Earnings: Why NVDA, ORCL, SPCX, XOM, OTLK Are In Focus
+   Relevance: Chip coverage could affect semiconductor leadership.
+2. Theme: Alphabet / Google / YouTube
    Tickers: GOOGL
-   Evidence: 5 sources / 10 headlines
-   Rep: Google’s Earnings Could be a Bad Omen for Big Tech
+   Evidence: 4 sources / 9 headlines
+   Rep: Alphabet, Microsoft, Meta Platforms, Apple and Amazon are part of Zacks Earnings Preview
    Relevance: Search, YouTube and AI coverage keep communication services in focus.
-2. Theme: Tesla / FSD / deliveries / robotaxi
+3. Theme: Apple / iPhone / App Store
+   Tickers: AAPL
+   Evidence: 4 sources / 8 headlines
+   Rep: Maker of Chips Sought by Apple Soars to No. 1 in China Stock Market
+   Relevance: iPhone and App Store coverage keeps consumer tech in focus.
+4. Theme: Tesla / FSD / deliveries / robotaxi
    Tickers: TSLA
-   Evidence: 4 sources / 5 headlines
-   Rep: Ford set to challenge Tesla after big new deal with tech giant
+   Evidence: 3 sources / 4 headlines
+   Rep: SpaceX Stock Is Down 49% — Elon Musk Says That’s Exactly What Investors Should Expect
    Relevance: Autonomy and deliveries keep high-beta EV sentiment in focus.
-3. Theme: Amazon / AWS
-   Tickers: AMZN
-   Evidence: 2 sources / 4 headlines
-   Rep: Amazon vs. Microsoft: Which Cloud Empire Is the Better Buy Now?
-   Relevance: AWS headlines keep AI infrastructure spending in focus.
-4. Theme: Microsoft / OpenAI / Azure
-   Tickers: MSFT
-   Evidence: 2 sources / 3 headlines
-   Rep: ORCL Stock Rises After-Hours On Pentagon Deal Worth Up To $7B — Why Retail Sees NOW, PLTR, MSFT And Others Benefiting Too
-   Relevance: AI and cloud narratives keep mega-cap tech in focus.
 
 KEY TICKERS TO WATCH
-1. GOOGL — Alphabet / Google / YouTube
-   Evidence: 10 inferred mentions / Yahoo feed 7
+1. NVDA — Nvidia / AI chip / Blackwell
+   Evidence: 10 inferred mentions / Yahoo feed 10
+   Why it matters: AI chips and data-centre demand remain central to semiconductor leadership.
+   Watch next: chip demand, Blackwell and AI infrastructure headlines.
+2. GOOGL — Alphabet / Google / YouTube
+   Evidence: 9 inferred mentions / Yahoo feed 10
    Why it matters: Search, YouTube and AI-platform coverage remain in focus.
    Watch next: search, YouTube and AI platform headlines.
-2. TSLA — Tesla / Elon Musk / FSD
-   Evidence: 5 inferred mentions / Yahoo feed 7
-   Why it matters: Autonomy, deliveries and EV sentiment remain key swing factors.
-   Watch next: FSD, robotaxi and delivery-related headlines.
-3. AMZN — Amazon / AWS
-   Evidence: 4 inferred mentions / Yahoo feed 7
-   Why it matters: AWS and cloud infrastructure spending remain key AI investment signals.
-   Watch next: AWS, cloud capex and AI infrastructure headlines.
-4. MSFT — Microsoft / OpenAI / Azure
-   Evidence: 3 inferred mentions / Yahoo feed 5
+3. MSFT — Microsoft / OpenAI / Azure
+   Evidence: 9 inferred mentions / Yahoo feed 9
    Why it matters: AI capex and platform spending narratives remain in focus.
    Watch next: OpenAI, Azure and mega-cap tech leadership headlines.
+4. AAPL — Apple / iPhone / App Store
+   Evidence: 8 inferred mentions / Yahoo feed 9
+   Why it matters: Consumer tech, App Store and regulatory coverage remain active.
+   Watch next: iPhone, App Store and policy headlines.
 
 MACRO WATCH
 No major macro events in the v1 manual calendar.
 High-importance events may affect index futures, rates, FX, and sector leadership.
 
 NEXT WATCH POINTS
-- Top theme: watch whether Alphabet / Google / YouTube broadens or fades.
-- Key tickers: watch follow-through in GOOGL, TSLA, AMZN.
+- Top theme: watch whether Nvidia / AI chip / Blackwell / semiconductor broadens or fades.
+- Key tickers: watch follow-through in NVDA, GOOGL, MSFT.
 - Macro: light calendar; equity themes may drive the session.
 
 Generated automatically. Not a trade recommendation.
