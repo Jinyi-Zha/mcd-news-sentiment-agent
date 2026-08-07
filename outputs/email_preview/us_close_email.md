@@ -1,65 +1,65 @@
 # Email Delivery Preview
 
 Recipient list placeholder: <recipient-list-placeholder>
-Subject: MCD Equities Briefing | US Close | 2026-08-05 22:17 London
+Subject: MCD Equities Briefing | US Close | 2026-08-07 01:54 London
 Source briefing path: outputs/us_close_briefing.md
 
 ## Email Body
 
-MCD Capital — Equities Briefing | US Close | 2026-08-05 22:17 BST
+MCD Capital — Equities Briefing | US Close | 2026-08-07 01:54 BST
 
 EXECUTIVE SUMMARY
-- Alphabet / Google / YouTube remains in focus: 5 sources / 14 headlines. Search, YouTube and AI coverage keep communication services in focus.
-- Nvidia / AI chip / Blackwell / semiconductor remains in focus: 5 sources / 6 headlines. Chip coverage could affect semiconductor leadership.
-- Tesla / FSD / deliveries / robotaxi remains in focus: 4 sources / 6 headlines. Autonomy and deliveries keep high-beta EV sentiment in focus.
+- Microsoft / OpenAI / Azure remains in focus: 7 sources / 12 headlines. AI and cloud narratives keep mega-cap tech in focus.
+- Tesla / FSD / deliveries / robotaxi remains in focus: 7 sources / 9 headlines. Autonomy and deliveries keep high-beta EV sentiment in focus.
+- Alphabet / Google / YouTube remains in focus: 6 sources / 12 headlines. Search, YouTube and AI coverage keep communication services in focus.
 
 TOP MARKET THEMES
-1. Theme: Alphabet / Google / YouTube
-   Tickers: GOOGL
-   Evidence: 5 sources / 14 headlines
-   Rep: The Calm Surface of Alphabet Stock Hides a Turbulent Forecast
-   Relevance: Search, YouTube and AI coverage keep communication services in focus.
-2. Theme: Nvidia / AI chip / Blackwell / semiconductor
-   Tickers: NVDA
-   Evidence: 5 sources / 6 headlines
-   Rep: AMD sinks on revenue forecasts as competition with Nvidia grows more apparent
-   Relevance: Chip coverage could affect semiconductor leadership.
-3. Theme: Tesla / FSD / deliveries / robotaxi
+1. Theme: Microsoft / OpenAI / Azure
+   Tickers: MSFT
+   Evidence: 7 sources / 12 headlines
+   Rep: What Microsoft Stock's Thin Earnings Premium Is Actually Buying
+   Relevance: AI and cloud narratives keep mega-cap tech in focus.
+2. Theme: Tesla / FSD / deliveries / robotaxi
    Tickers: TSLA
-   Evidence: 4 sources / 6 headlines
-   Rep: SpaceX And Tesla Earnings Have A Similar Theme: Capex Spending
+   Evidence: 7 sources / 9 headlines
+   Rep: Prediction: Tesla's Share Price Dip Will Prove an Excellent Buying Opportunity
    Relevance: Autonomy and deliveries keep high-beta EV sentiment in focus.
-4. Theme: Magnificent Seven / Big Tech / AI spending
-   Tickers: AAPL; AMZN; GOOGL; META; MSFT; NVDA; TSLA
-   Evidence: 4 sources / 4 headlines
-   Rep: Big Tech's blowout profits hide an uncomfortable truth
-   Relevance: Mega-cap tech breadth remains central to index direction.
+3. Theme: Alphabet / Google / YouTube
+   Tickers: GOOGL
+   Evidence: 6 sources / 12 headlines
+   Rep: Alphabet Promised More AI Spending. Now It’s Asking the Bond Market For the Cash.
+   Relevance: Search, YouTube and AI coverage keep communication services in focus.
+4. Theme: Meta / Facebook / Instagram / WhatsApp
+   Tickers: META
+   Evidence: 3 sources / 5 headlines
+   Rep: The Unspoken Agreement You've Made Holding Meta Platforms Stock
+   Relevance: Social platforms keep digital advertising exposure in focus.
 
 KEY TICKERS TO WATCH
-1. GOOGL — Alphabet / Google / YouTube
-   Evidence: 14 inferred mentions / Yahoo feed 7
+1. MSFT — Microsoft / OpenAI / Azure
+   Evidence: 12 inferred mentions / Yahoo feed 10
+   Why it matters: AI capex and platform spending narratives remain in focus.
+   Watch next: OpenAI, Azure and mega-cap tech leadership headlines.
+2. GOOGL — Alphabet / Google / YouTube
+   Evidence: 12 inferred mentions / Yahoo feed 7
    Why it matters: Search, YouTube and AI-platform coverage remain in focus.
    Watch next: search, YouTube and AI platform headlines.
-2. NVDA — Nvidia / AI chip / Blackwell
-   Evidence: 6 inferred mentions / Yahoo feed 9
-   Why it matters: AI chips and data-centre demand remain central to semiconductor leadership.
-   Watch next: chip demand, Blackwell and AI infrastructure headlines.
 3. TSLA — Tesla / Elon Musk / FSD
-   Evidence: 6 inferred mentions / Yahoo feed 9
+   Evidence: 9 inferred mentions / Yahoo feed 10
    Why it matters: Autonomy, deliveries and EV sentiment remain key swing factors.
    Watch next: FSD, robotaxi and delivery-related headlines.
-4. AMZN — Amazon / AWS
+4. META — Meta / Facebook / Instagram / WhatsApp
    Evidence: 5 inferred mentions / Yahoo feed 10
-   Why it matters: AWS and cloud infrastructure spending remain key AI investment signals.
-   Watch next: AWS, cloud capex and AI infrastructure headlines.
+   Why it matters: Digital ads, social platforms and AI infrastructure remain linked.
+   Watch next: ad demand, platform engagement and AI spend headlines.
 
 MACRO WATCH
 No major macro events in the v1 manual calendar.
 High-importance events may affect index futures, rates, FX, and sector leadership.
 
 NEXT WATCH POINTS
-- Top theme: watch whether Alphabet / Google / YouTube broadens or fades.
-- Key tickers: watch follow-through in GOOGL, NVDA, TSLA.
+- Top theme: watch whether Microsoft / OpenAI / Azure broadens or fades.
+- Key tickers: watch follow-through in MSFT, GOOGL, TSLA.
 - Macro: light calendar; equity themes may drive the session.
 
 Generated automatically. Not a trade recommendation.
