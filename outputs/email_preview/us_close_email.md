@@ -1,65 +1,65 @@
 # Email Delivery Preview
 
 Recipient list placeholder: <recipient-list-placeholder>
-Subject: MCD Equities Briefing | US Close | 2026-08-29 03:46 London
+Subject: MCD Equities Briefing | US Close | 2026-09-01 00:41 London
 Source briefing path: outputs/us_close_briefing.md
 
 ## Email Body
 
-MCD Capital — Equities Briefing | US Close | 2026-08-29 03:46 BST
+MCD Capital — Equities Briefing | US Close | 2026-09-01 00:41 BST
 
 EXECUTIVE SUMMARY
-- Microsoft / OpenAI / Azure remains in focus: 4 sources / 8 headlines. AI and cloud narratives keep mega-cap tech in focus.
-- Meta / Facebook / Instagram / WhatsApp remains in focus: 4 sources / 4 headlines. Social platforms keep digital advertising exposure in focus.
-- Apple / iPhone / App Store remains in focus: 3 sources / 5 headlines. iPhone and App Store coverage keeps consumer tech in focus.
+- Amazon / AWS remains in focus: 9 sources / 12 headlines. AWS headlines keep AI infrastructure spending in focus.
+- Apple / iPhone / App Store remains in focus: 6 sources / 7 headlines. iPhone and App Store coverage keeps consumer tech in focus.
+- Tesla / FSD / deliveries / robotaxi remains in focus: 5 sources / 11 headlines. Autonomy and deliveries keep high-beta EV sentiment in focus.
 
 TOP MARKET THEMES
-1. Theme: Microsoft / OpenAI / Azure
-   Tickers: MSFT
-   Evidence: 4 sources / 8 headlines
-   Rep: Has Microsoft Stock Run Ahead Of Its AI Payoff?
-   Relevance: AI and cloud narratives keep mega-cap tech in focus.
-2. Theme: Meta / Facebook / Instagram / WhatsApp
-   Tickers: META
-   Evidence: 4 sources / 4 headlines
-   Rep: Meta's 9.9% Jio Stake Finally Gets a Public Scoreboard
-   Relevance: Social platforms keep digital advertising exposure in focus.
-3. Theme: Apple / iPhone / App Store
+1. Theme: Amazon / AWS
+   Tickers: AMZN
+   Evidence: 9 sources / 12 headlines
+   Rep: US regulator, 22 states accuse Amazon of 'manipulating' ad auctions: lawsuit
+   Relevance: AWS headlines keep AI infrastructure spending in focus.
+2. Theme: Apple / iPhone / App Store
    Tickers: AAPL
-   Evidence: 3 sources / 5 headlines
-   Rep: Apple CEO Tim Cook Pays Tribute to Yayoi Kusama, the Legendary Artist Behind Iconic Pumpkin Sculptures and Polka-Dots
+   Evidence: 6 sources / 7 headlines
+   Rep: Rewind to 2011: Tim Cook's first Apple product launch as CEO
    Relevance: iPhone and App Store coverage keeps consumer tech in focus.
-4. Theme: Alphabet / Google / YouTube
-   Tickers: GOOGL
-   Evidence: 2 sources / 2 headlines
-   Rep: AppLovin vs. Alphabet: Which High-Growth Digital Media Stock Is the Better Investment in 2026?
-   Relevance: Search, YouTube and AI coverage keep communication services in focus.
+3. Theme: Tesla / FSD / deliveries / robotaxi
+   Tickers: TSLA
+   Evidence: 5 sources / 11 headlines
+   Rep: Dow Jones Futures: Trump's Iran Warning Sparks Stock Market Losses; Elon Musk-Led SpaceX, Tesla Rally
+   Relevance: Autonomy and deliveries keep high-beta EV sentiment in focus.
+4. Theme: Microsoft / OpenAI / Azure
+   Tickers: MSFT
+   Evidence: 4 sources / 4 headlines
+   Rep: Microsoft (MSFT) Brings Arabic Language AI Models To Its Ecosystem
+   Relevance: AI and cloud narratives keep mega-cap tech in focus.
 
 KEY TICKERS TO WATCH
-1. MSFT — Microsoft / OpenAI / Azure
-   Evidence: 8 inferred mentions / Yahoo feed 10
-   Why it matters: AI capex and platform spending narratives remain in focus.
-   Watch next: OpenAI, Azure and mega-cap tech leadership headlines.
-2. AAPL — Apple / iPhone / App Store
-   Evidence: 5 inferred mentions / Yahoo feed 6
-   Why it matters: Consumer tech, App Store and regulatory coverage remain active.
-   Watch next: iPhone, App Store and policy headlines.
+1. AMZN — Amazon / AWS
+   Evidence: 12 inferred mentions / Yahoo feed 9
+   Why it matters: AWS and cloud infrastructure spending remain key AI investment signals.
+   Watch next: AWS, cloud capex and AI infrastructure headlines.
+2. TSLA — Tesla / Elon Musk / FSD
+   Evidence: 11 inferred mentions / Yahoo feed 10
+   Why it matters: Autonomy, deliveries and EV sentiment remain key swing factors.
+   Watch next: FSD, robotaxi and delivery-related headlines.
 3. META — Meta / Facebook / Instagram / WhatsApp
-   Evidence: 4 inferred mentions / Yahoo feed 7
+   Evidence: 7 inferred mentions / Yahoo feed 10
    Why it matters: Digital ads, social platforms and AI infrastructure remain linked.
    Watch next: ad demand, platform engagement and AI spend headlines.
-4. GOOGL — Alphabet / Google / YouTube
-   Evidence: 2 inferred mentions / Yahoo feed 8
-   Why it matters: Search, YouTube and AI-platform coverage remain in focus.
-   Watch next: search, YouTube and AI platform headlines.
+4. AAPL — Apple / iPhone / App Store
+   Evidence: 7 inferred mentions / Yahoo feed 9
+   Why it matters: Consumer tech, App Store and regulatory coverage remain active.
+   Watch next: iPhone, App Store and policy headlines.
 
 MACRO WATCH
 No major macro events in the v1 manual calendar.
 High-importance events may affect index futures, rates, FX, and sector leadership.
 
 NEXT WATCH POINTS
-- Top theme: watch whether Microsoft / OpenAI / Azure broadens or fades.
-- Key tickers: watch follow-through in MSFT, AAPL, META.
+- Top theme: watch whether Amazon / AWS broadens or fades.
+- Key tickers: watch follow-through in AMZN, TSLA, META.
 - Macro: light calendar; equity themes may drive the session.
 
 Generated automatically. Not a trade recommendation.
