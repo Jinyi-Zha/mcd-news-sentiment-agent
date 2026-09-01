@@ -189,3 +189,7 @@ running Streamlit instance.
 ## Final Delivery Notes
 
 The project prioritises stability, readability, explainability, and avoiding over-building.
+
+The Streamlit dashboard is hosted on Streamlit Community Cloud as a lightweight review environment and may go to sleep after a period of inactivity. If this happens, open the dashboard and select **“Yes, get this app back up!”**. This is a hosting-platform behaviour rather than an application or pipeline failure.
+
+For production or always-on use, the company or future project owner should migrate the dashboard to its preferred production hosting environment and manage the associated infrastructure and ongoing support.
