@@ -1,65 +1,65 @@
 # Email Delivery Preview
 
 Recipient list placeholder: <recipient-list-placeholder>
-Subject: MCD Equities Briefing | US Close | 2026-09-03 23:27 London
+Subject: MCD Equities Briefing | US Close | 2026-09-04 23:16 London
 Source briefing path: outputs/us_close_briefing.md
 
 ## Email Body
 
-MCD Capital — Equities Briefing | US Close | 2026-09-03 23:27 BST
+MCD Capital — Equities Briefing | US Close | 2026-09-04 23:16 BST
 
 EXECUTIVE SUMMARY
-- Apple / iPhone / App Store remains in focus: 5 sources / 6 headlines. iPhone and App Store coverage keeps consumer tech in focus.
-- Microsoft / OpenAI / Azure remains in focus: 4 sources / 6 headlines. AI and cloud narratives keep mega-cap tech in focus.
-- IPO / M&A / deal remains in focus: 4 sources / 5 headlines. Deal flow may influence risk appetite and single-stock catalysts.
+- Tesla / FSD / deliveries / robotaxi remains in focus: 6 sources / 11 headlines. Autonomy and deliveries keep high-beta EV sentiment in focus.
+- Nvidia / AI chip / Blackwell / semiconductor remains in focus: 4 sources / 4 headlines. Chip coverage could affect semiconductor leadership.
+- Magnificent Seven / Big Tech / AI spending remains in focus: 3 sources / 12 headlines. Mega-cap tech breadth remains central to index direction.
 
 TOP MARKET THEMES
-1. Theme: Apple / iPhone / App Store
-   Tickers: AAPL
-   Evidence: 5 sources / 6 headlines
-   Rep: Tim Cook Grew Apple From a $350 Billion Company Into a Multi-Trillion-Dollar Giant Over Nearly 15 Years as CEO. Can John Ternus' Product-First Approach Extend That Compounding?
-   Relevance: iPhone and App Store coverage keeps consumer tech in focus.
-2. Theme: Microsoft / OpenAI / Azure
-   Tickers: MSFT
-   Evidence: 4 sources / 6 headlines
-   Rep: Microsoft Finally Reveals Azure's $29.4 Billion Core
-   Relevance: AI and cloud narratives keep mega-cap tech in focus.
-3. Theme: IPO / M&A / deal
-   Tickers: AMZN; META; NVDA
-   Evidence: 4 sources / 5 headlines
-   Rep: How Nvidia's latest deal continues to target all points of the AI trade
-   Relevance: Deal flow may influence risk appetite and single-stock catalysts.
-4. Theme: Tesla / FSD / deliveries / robotaxi
+1. Theme: Tesla / FSD / deliveries / robotaxi
    Tickers: TSLA
-   Evidence: 3 sources / 10 headlines
-   Rep: Dow Jones Futures: Stocks Jump On Fed's Waller; Tesla Cybercab Event Private, Jobs Report Looms
+   Evidence: 6 sources / 11 headlines
+   Rep: Elon Musk Committed SpaceX to Building "Exclusively on Nvidia." Here's What That Locks In for SpaceX's Compute Bill.
    Relevance: Autonomy and deliveries keep high-beta EV sentiment in focus.
+2. Theme: Nvidia / AI chip / Blackwell / semiconductor
+   Tickers: NVDA
+   Evidence: 4 sources / 4 headlines
+   Rep: Dow Jones Futures: Nvidia, Micron, Sandisk Flash Buy Signals; Apple, Inflation Reports Ahead
+   Relevance: Chip coverage could affect semiconductor leadership.
+3. Theme: Magnificent Seven / Big Tech / AI spending
+   Tickers: AAPL; AMZN; GOOGL; META; MSFT; NVDA; TSLA
+   Evidence: 3 sources / 12 headlines
+   Rep: Magnificent Seven Flash Strong Signal Never Seen Before
+   Relevance: Mega-cap tech breadth remains central to index direction.
+4. Theme: Apple / iPhone / App Store
+   Tickers: AAPL
+   Evidence: 3 sources / 6 headlines
+   Rep: Apple's John Ternus needs to be his own type of CEO and 'not Tim Cook 2'
+   Relevance: iPhone and App Store coverage keeps consumer tech in focus.
 
 KEY TICKERS TO WATCH
 1. TSLA — Tesla / Elon Musk / FSD
-   Evidence: 10 inferred mentions / Yahoo feed 8
+   Evidence: 11 inferred mentions / Yahoo feed 9
    Why it matters: Autonomy, deliveries and EV sentiment remain key swing factors.
    Watch next: FSD, robotaxi and delivery-related headlines.
-2. MSFT — Microsoft / OpenAI / Azure
+2. AAPL — Apple / iPhone / App Store
+   Evidence: 6 inferred mentions / Yahoo feed 10
+   Why it matters: Consumer tech, App Store and regulatory coverage remain active.
+   Watch next: iPhone, App Store and policy headlines.
+3. MSFT — Microsoft / OpenAI / Azure
    Evidence: 6 inferred mentions / Yahoo feed 10
    Why it matters: AI capex and platform spending narratives remain in focus.
    Watch next: OpenAI, Azure and mega-cap tech leadership headlines.
-3. AAPL — Apple / iPhone / App Store
-   Evidence: 6 inferred mentions / Yahoo feed 9
-   Why it matters: Consumer tech, App Store and regulatory coverage remain active.
-   Watch next: iPhone, App Store and policy headlines.
-4. AMZN — Amazon / AWS
-   Evidence: 5 inferred mentions / Yahoo feed 8
-   Why it matters: AWS and cloud infrastructure spending remain key AI investment signals.
-   Watch next: AWS, cloud capex and AI infrastructure headlines.
+4. NVDA — Nvidia / AI chip / Blackwell
+   Evidence: 4 inferred mentions / Yahoo feed 9
+   Why it matters: AI chips and data-centre demand remain central to semiconductor leadership.
+   Watch next: chip demand, Blackwell and AI infrastructure headlines.
 
 MACRO WATCH
 No major macro events in the v1 manual calendar.
 High-importance events may affect index futures, rates, FX, and sector leadership.
 
 NEXT WATCH POINTS
-- Top theme: watch whether Apple / iPhone / App Store broadens or fades.
-- Key tickers: watch follow-through in TSLA, MSFT, AAPL.
+- Top theme: watch whether Tesla / FSD / deliveries / robotaxi broadens or fades.
+- Key tickers: watch follow-through in TSLA, AAPL, MSFT.
 - Macro: light calendar; equity themes may drive the session.
 
 Generated automatically. Not a trade recommendation.
