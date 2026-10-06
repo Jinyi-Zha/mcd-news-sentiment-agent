@@ -1,12 +1,12 @@
 # Email Delivery Preview
 
 Recipient list placeholder: <recipient-list-placeholder>
-Subject: MCD Equities Briefing | US Close | 2026-10-06 02:14 London
+Subject: MCD Equities Briefing | US Close | 2026-10-07 00:42 London
 Source briefing path: outputs/us_close_briefing.md
 
 ## Email Body
 
-MCD Capital — Equities Briefing | US Close | 2026-10-06 02:14 BST
+MCD Capital — Equities Briefing | US Close | 2026-10-07 00:41 BST
 
 EXECUTIVE SUMMARY
 
