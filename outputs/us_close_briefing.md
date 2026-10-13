@@ -1,4 +1,4 @@
-MCD Capital — Equities Briefing | US Close | 2026-10-13 02:55 BST
+MCD Capital — Equities Briefing | US Close | 2026-10-14 00:40 BST
 
 EXECUTIVE SUMMARY
 
