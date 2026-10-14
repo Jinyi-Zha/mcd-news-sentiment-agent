@@ -1,4 +1,4 @@
-MCD Capital — Equities Briefing | US Open | 2026-10-13 20:55 BST
+MCD Capital — Equities Briefing | US Open | 2026-10-14 19:06 BST
 
 EXECUTIVE SUMMARY
 
