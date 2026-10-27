@@ -1,4 +1,4 @@
-MCD Capital — Equities Briefing | US Close | 2026-10-26 23:40 GMT
+MCD Capital — Equities Briefing | US Close | 2026-10-27 23:39 GMT
 
 EXECUTIVE SUMMARY
 
