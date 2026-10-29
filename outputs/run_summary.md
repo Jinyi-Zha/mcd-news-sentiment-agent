@@ -1,8 +1,8 @@
 # MCD News & Sentiment Agent — Run Summary
 
 Project name: MCD News & Sentiment Agent
-Run type: us_open
-Run time: 2026-10-29 19:05 GMT
+Run type: us_close
+Run time: 2026-10-29 23:52 GMT
 Overall status: Warning
 
 ## Pipeline Stages
@@ -18,11 +18,11 @@ Overall status: Warning
 - email_dry_run
 
 ## Pipeline Outputs
-- Briefing: outputs/us_open_briefing.md
-- Archive briefing: outputs/archive/2026-10-29/us_open_briefing_2026-10-29_1905.md
-- Email preview: outputs/email_preview/us_open_email.md
+- Briefing: outputs/us_close_briefing.md
+- Archive briefing: outputs/archive/2026-10-29/us_close_briefing_2026-10-29_2352.md
+- Email preview: outputs/email_preview/us_close_email.md
 - Run summary: outputs/run_summary.md
-- Archive run summary: outputs/archive/2026-10-29/run_summary_us_open_2026-10-29_1905.md
+- Archive run summary: outputs/archive/2026-10-29/run_summary_us_close_2026-10-29_2352.md
 
 ## Data Summary
 - Top headlines included: 0
