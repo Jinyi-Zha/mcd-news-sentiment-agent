@@ -1,4 +1,4 @@
-MCD Capital — Equities Briefing | EU Open | 2026-10-30 13:45 GMT
+MCD Capital — Equities Briefing | EU Open | 2026-11-02 16:43 GMT
 
 EXECUTIVE SUMMARY
 
