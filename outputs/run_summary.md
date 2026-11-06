@@ -1,8 +1,8 @@
 # MCD News & Sentiment Agent — Run Summary
 
 Project name: MCD News & Sentiment Agent
-Run type: eu_open
-Run time: 2026-11-06 14:43 GMT
+Run type: us_open
+Run time: 2026-11-06 20:00 GMT
 Overall status: Success
 
 ## Pipeline Stages
@@ -18,11 +18,11 @@ Overall status: Success
 - email_dry_run
 
 ## Pipeline Outputs
-- Briefing: outputs/eu_open_briefing.md
-- Archive briefing: outputs/archive/2026-11-06/eu_open_briefing_2026-11-06_1443.md
-- Email preview: outputs/email_preview/eu_open_email.md
+- Briefing: outputs/us_open_briefing.md
+- Archive briefing: outputs/archive/2026-11-06/us_open_briefing_2026-11-06_2000.md
+- Email preview: outputs/email_preview/us_open_email.md
 - Run summary: outputs/run_summary.md
-- Archive run summary: outputs/archive/2026-11-06/run_summary_eu_open_2026-11-06_1443.md
+- Archive run summary: outputs/archive/2026-11-06/run_summary_us_open_2026-11-06_2000.md
 
 ## Data Summary
 - Top headlines included: 4
