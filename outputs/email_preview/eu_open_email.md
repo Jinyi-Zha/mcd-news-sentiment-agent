@@ -1,65 +1,65 @@
 # Email Delivery Preview
 
 Recipient list placeholder: <recipient-list-placeholder>
-Subject: MCD Equities Briefing | EU Open | 2026-11-26 17:27 London
+Subject: MCD Equities Briefing | EU Open | 2026-11-27 17:06 London
 Source briefing path: outputs/eu_open_briefing.md
 
 ## Email Body
 
-MCD Capital — Equities Briefing | EU Open | 2026-11-26 17:27 GMT
+MCD Capital — Equities Briefing | EU Open | 2026-11-27 17:06 GMT
 
 EXECUTIVE SUMMARY
-- Meta / Facebook / Instagram / WhatsApp remains in focus: 5 sources / 7 headlines. Social platforms keep digital advertising exposure in focus.
-- Tesla / FSD / deliveries / robotaxi remains in focus: 5 sources / 7 headlines. Autonomy and deliveries keep high-beta EV sentiment in focus.
-- Apple / iPhone / App Store remains in focus: 3 sources / 9 headlines. iPhone and App Store coverage keeps consumer tech in focus.
+- Apple / iPhone / App Store remains in focus: 6 sources / 7 headlines. iPhone and App Store coverage keeps consumer tech in focus.
+- Nvidia / AI chip / Blackwell / semiconductor remains in focus: 4 sources / 10 headlines. Chip coverage could affect semiconductor leadership.
+- Meta / Facebook / Instagram / WhatsApp remains in focus: 3 sources / 7 headlines. Social platforms keep digital advertising exposure in focus.
 
 TOP MARKET THEMES
-1. Theme: Meta / Facebook / Instagram / WhatsApp
-   Tickers: META
-   Evidence: 5 sources / 7 headlines
-   Rep: Meta Platforms Just Partnered With Walmart. Here's Why Investors Should Pay Attention
-   Relevance: Social platforms keep digital advertising exposure in focus.
-2. Theme: Tesla / FSD / deliveries / robotaxi
-   Tickers: TSLA
-   Evidence: 5 sources / 7 headlines
-   Rep: Tesla's Self-Driving Expansion in Europe Faces a Crucial Test
-   Relevance: Autonomy and deliveries keep high-beta EV sentiment in focus.
-3. Theme: Apple / iPhone / App Store
+1. Theme: Apple / iPhone / App Store
    Tickers: AAPL
-   Evidence: 3 sources / 9 headlines
-   Rep: Apple, Exxon and Lowe’s Are Rewarding Shareholders Beyond Their Regular Dividends
+   Evidence: 6 sources / 7 headlines
+   Rep: Apple gains smartphone share as memory crunch squeezes budget Android phones
    Relevance: iPhone and App Store coverage keeps consumer tech in focus.
-4. Theme: Alphabet / Google / YouTube
-   Tickers: GOOGL
+2. Theme: Nvidia / AI chip / Blackwell / semiconductor
+   Tickers: NVDA
+   Evidence: 4 sources / 10 headlines
+   Rep: All these Nvidia headlines are just noise: Why you should keep watching AI spending
+   Relevance: Chip coverage could affect semiconductor leadership.
+3. Theme: Meta / Facebook / Instagram / WhatsApp
+   Tickers: META
+   Evidence: 3 sources / 7 headlines
+   Rep: Anthropic, Meta and Microsoft Join AI Data Center Talks in Japan
+   Relevance: Social platforms keep digital advertising exposure in focus.
+4. Theme: Microsoft / OpenAI / Azure
+   Tickers: MSFT
    Evidence: 3 sources / 6 headlines
-   Rep: Alphabet Drops 15% in a Year: Buy, Sell or Hold the Stock?
-   Relevance: Search, YouTube and AI coverage keep communication services in focus.
+   Rep: Why Is Microsoft (MSFT) Down 7.6% Since Last Earnings Report?
+   Relevance: AI and cloud narratives keep mega-cap tech in focus.
 
 KEY TICKERS TO WATCH
-1. AAPL — Apple / iPhone / App Store
+1. NVDA — Nvidia / AI chip / Blackwell
    Evidence: 9 inferred mentions / Yahoo feed 10
+   Why it matters: AI chips and data-centre demand remain central to semiconductor leadership.
+   Watch next: chip demand, Blackwell and AI infrastructure headlines.
+2. AAPL — Apple / iPhone / App Store
+   Evidence: 7 inferred mentions / Yahoo feed 10
    Why it matters: Consumer tech, App Store and regulatory coverage remain active.
    Watch next: iPhone, App Store and policy headlines.
-2. META — Meta / Facebook / Instagram / WhatsApp
+3. META — Meta / Facebook / Instagram / WhatsApp
    Evidence: 7 inferred mentions / Yahoo feed 10
    Why it matters: Digital ads, social platforms and AI infrastructure remain linked.
    Watch next: ad demand, platform engagement and AI spend headlines.
-3. TSLA — Tesla / Elon Musk / FSD
-   Evidence: 7 inferred mentions / Yahoo feed 10
-   Why it matters: Autonomy, deliveries and EV sentiment remain key swing factors.
-   Watch next: FSD, robotaxi and delivery-related headlines.
-4. GOOGL — Alphabet / Google / YouTube
+4. MSFT — Microsoft / OpenAI / Azure
    Evidence: 6 inferred mentions / Yahoo feed 10
-   Why it matters: Search, YouTube and AI-platform coverage remain in focus.
-   Watch next: search, YouTube and AI platform headlines.
+   Why it matters: AI capex and platform spending narratives remain in focus.
+   Watch next: OpenAI, Azure and mega-cap tech leadership headlines.
 
 MACRO WATCH
 No major macro events in the v1 manual calendar.
 High-importance events may affect index futures, rates, FX, and sector leadership.
 
 NEXT WATCH POINTS
-- Top theme: watch whether Meta / Facebook / Instagram / WhatsApp broadens or fades.
-- Key tickers: watch follow-through in AAPL, META, TSLA.
+- Top theme: watch whether Apple / iPhone / App Store broadens or fades.
+- Key tickers: watch follow-through in NVDA, AAPL, META.
 - Macro: light calendar; equity themes may drive the session.
 
 Generated automatically. Not a trade recommendation.
